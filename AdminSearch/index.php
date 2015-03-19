@@ -60,7 +60,7 @@ LayoutClass::includeHeader();
         
     </form>
 <br><br>
-<a style="color: black" href="<?php echo htmlspecialchars($_SERVER['PHP_SELF']).'?action=delete';?>">delete</a>
+<a style="color: black" href="<?php echo htmlspecialchars($_SERVER['PHP_SELF']).'?action=Delete';?>">delete</a>
 
         <?php
         

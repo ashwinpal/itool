@@ -2,6 +2,7 @@
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/GeneralClass.php';
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/Interfaces.php';
+
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/SearchModel.php';
 
 
@@ -18,7 +19,7 @@ class AdminSearchController implements iAction{
             
             case 'Index' :  GeneralClass::redirect('/project/itool/AdminSearch', false);
                 break;
-            case 'delete':  GeneralClass::redirect("deleteSearch.php", false);
+            case 'Delete':  GeneralClass::redirect("DeleteSearch.php", false);
                 break;
             default : die('Error in action call ->'.$view);
                 
@@ -42,6 +43,8 @@ class AdminSearchController implements iAction{
             
             GeneralClass::redirect('/project/itool/AdminSearch/Index.php?'.$result, false);
     }
+    
+    
        
 }
 
