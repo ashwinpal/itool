@@ -24,8 +24,8 @@ LayoutClass::includeHeader();
             
                
                 
-                $controllerObj->formValues();
-                $controllerObj->insert();
+               
+                $controllerObj->update($_POST['keyword']);
             
             }
     
@@ -37,11 +37,11 @@ LayoutClass::includeHeader();
         <label>Enter a new keyword : </label>
         <input type="text" name="keyword"/>
         <br>
-        <input type="submit" name="submit" value="Submit"/>
+        <input type="submit" name="submit" value="Update"/>
         
     </form>
 <br><br>
-<a style="color: black" href="<?php echo htmlspecialchars($_SERVER['PHP_SELF']).'?action=Delete';?>">delete</a>
+<a style="color: black" href="<?php echo htmlspecialchars($_SERVER['PHP_SELF']).'?action=Insert';?>">Insert</a>
 
         <?php
         
@@ -50,10 +50,10 @@ LayoutClass::includeHeader();
             echo '<div id = "result">';
             
             if($_SERVER['QUERY_STRING']==1)
-            { echo "Keyword has been added."; }
+            { echo "Keyword has been updated."; }
             else
                 if($_SERVER['QUERY_STRING']==0)
-            { echo "Error in inserting keyword."; }
+            { echo "Error in updating keyword."; }
             
             }
             

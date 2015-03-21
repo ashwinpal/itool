@@ -35,6 +35,7 @@ class AdminSearchController implements iAction{
         
     }
     
+    
     public function insert(){
         
             $modelAction = new SearchFunctionality();
@@ -44,8 +45,28 @@ class AdminSearchController implements iAction{
             GeneralClass::redirect('/project/itool/AdminSearch/Index.php?'.$result, false);
     }
     
+    public function delete(){
+        
+            $modelAction = new SearchFunctionality();
+        
+            $result=$modelAction->DeleteKeyword($this->model);
+            
+            GeneralClass::redirect('/project/itool/AdminSearch/DeleteSearch.php?'.$result, false);
+    }    
     
-       
+    
+    public function update($word){
+        
+            $modelAction = new SearchFunctionality();
+        
+            $result=$modelAction->UpdateKeyword($word);
+            
+            GeneralClass::redirect('/project/itool/AdminSearch/UpdateSearch.php?'.$result, false);        
+        
+    }
+    
+    
+            
 }
 
 

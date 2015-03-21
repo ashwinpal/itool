@@ -50,9 +50,9 @@ and open the template in the editor.
             </div>
             <form class="navbar-form navbar-left collapse navbar-collapse navbar-ex1-collapse" role="search">
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" id="search_txt" class="form-control" placeholder="Search">
                       </div>
-                      <button type="submit" class="btn btn-default">Search</button>
+                      <button type="submit" id="btn_search" class="btn btn-default">Search</button>
                     </form>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">

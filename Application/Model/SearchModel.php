@@ -82,7 +82,7 @@ class SearchFunctionality{
     
     public function DeleteKeyword($model){
         
-        $sql="Delete search where keyword = :keyword)";
+        $sql="Delete from search where keyword = :keyword";
         
         $statement = $this->dbcon->prepare($sql);
 
@@ -104,7 +104,34 @@ class SearchFunctionality{
         {
             return 0;
         }        
-    }    
+    }
+    
+    public function UpdateKeyword($word){
+        
+        $sql="Update search set count = 1 where keyword = :keyword";
+        
+        $statement = $this->dbcon->prepare($sql);
+
+        $statement->bindValue(':keyword', "qwe");
+       // $statement->bindValue(':count', ($model->getCount()+1));
+        
+        $success = $statement->execute();
+
+        //$row_count=$statement->rowCount();
+        $statement->closeCursor();
+
+        //$jobID = $this->dbcon->lastInsertId();
+
+        if($success)
+        {
+            return 1;
+
+        }
+        else
+        {
+            return 0;
+        }        
+    }
 //    function display()
 //    {
 //        $this->dbConnect();
