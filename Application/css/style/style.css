@@ -15,8 +15,9 @@ body {
 
 #page-wrapper {
     width: 100%;
-    padding: 0;
+    padding: 10px;
     background: #efefef;
+    height: 100%;
     
 }
 
@@ -74,7 +75,6 @@ background-color: #fff !important;
 
 .top-nav>li {
     display: inline-block;
-    float: left;
 }
 
 .top-nav>li>a {
@@ -267,4 +267,8 @@ ul.alert-dropdown {
 
 .page-links{
     color: #24618A;
+}
+
+.ui-widget-content {
+z-index: 1050 !important;
 }

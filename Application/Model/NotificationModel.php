@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-include'../Class/DBAccessClass.php';
+include $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/DBAccessClass.php';
 
 
 

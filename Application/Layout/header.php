@@ -17,8 +17,11 @@ and open the template in the editor.
      <!-- Bootstrap -->
         <link href="../Application/css/bootstrap/bootstrap.min.css" rel="stylesheet">
         <link href="../Application/css/style/style.css" rel="stylesheet">
+        
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
+    <!--  -->
+    <link rel="stylesheet" href="../Application/js/jquery_ui/jquery-ui.min.css">
+    
     <!-- Morris Charts CSS -->
     <link href="css/plugins/morris.css" rel="stylesheet">
 

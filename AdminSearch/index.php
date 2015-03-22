@@ -31,7 +31,9 @@ LayoutClass::includeHeader();
     
     ?>
 
+   <div id="page-wrapper">
 
+            <div class="container-fluid">
 
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
         <label>Enter a new keyword : </label>
@@ -60,8 +62,16 @@ LayoutClass::includeHeader();
             echo '<div>'
         ?>
    
+<br>
+<br>
+<input type="text" name="date" id="date">
             
+            
+        </div>
+        <!-- /.container-fluid -->
 
+    </div>
+    <!-- /#page-wrapper -->
     
 <?php
     LayoutClass::includeFooter();
