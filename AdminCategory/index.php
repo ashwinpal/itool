@@ -56,14 +56,14 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         </div>
         
         <div id="view_category">
-            <h3>View Category</h3>
+          <h3>View Category</h3>
             <form action="" method="post">
 
                <?php $controllerObj->display(); ?>
                        
             </form>           
-<!--       </div>
-        <div id="update_category">
+        </div>
+<!--         <div id="update_category">
             <h3>Update Category</h3>
             <form>
                 <label>Category Id:</label>  <input type="text" name="name" id="name" /><br/>
