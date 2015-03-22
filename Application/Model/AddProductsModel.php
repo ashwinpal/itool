@@ -77,6 +77,6 @@ class AddProduct{
     
     public function setImage($value){
         $this->image=$value;
-    }
+    }  
 }
 

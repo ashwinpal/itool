@@ -27,12 +27,15 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         
         $controllerObj->formValues();
         $controllerObj->insert();
+       // $controllerObj->display();
+
+        
     }
 
 ?>
  
         <div id="category_heading">
-             <h1>Product</h1>
+             <h1>Category</h1>
         </div>
         <hr/>
         
@@ -45,27 +48,21 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         </div>
         
         <div id="add_category">
-            <h3>Add New Category</h3>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+           <h3>Add New Category</h3>
+            <form action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                 <label>Category Name:</label>  <input type="text" name="name" id="name" /><br/>
                 <input type="submit" name="submit" id="submit" value="Add Category" />
             </form>
         </div>
-<!--        <div id="view_category">
+        
+        <div id="view_category">
             <h3>View Category</h3>
-            <form>
-                <table border="1">
-                    <tr>
-                        <th>Category Id</th>
-                        <th>Category Name</th>
-                    </tr>
-                    <tr>                       
-                        <td>abc</td>
-                        <td>abc</td>
-                    </tr>
-                </table>
+            <form action="" method="post">
+
+               <?php $controllerObj->display(); ?>
+                       
             </form>           
-        </div>
+<!--       </div>
         <div id="update_category">
             <h3>Update Category</h3>
             <form>
@@ -75,8 +72,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
             </form>
         </div>-->
 
-        <?php
-        
+        <?php        
             if($_SERVER['QUERY_STRING'] !==""){
             
             echo '<div id = "result">';

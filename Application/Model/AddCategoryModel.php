@@ -62,4 +62,22 @@ class CategoryFunctionality{
             return 0;
         }    
     }
+    
+    public function DisplayCategory(){
+        
+        $query="select category_id, category_name from category";
+        
+        $statement = $this->dbcon->query($query);
+        
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        
+         echo '<table border="1"> <th>Id</th><th>Name</th>';
+         foreach ($statement as $q){
+                
+                echo '<tr>';
+                echo '<td>'. $q['category_id'].'</td><td>'. $q['category_name'].'</td>';
+                echo '</tr>';                
+            }
+            echo '</table>';
+    }
 }

@@ -28,6 +28,12 @@ class AdminCategoryController implements iAction{
         $result=$modelAction->InsertCategory($this->model);
         GeneralClass::redirect('/project/itool/AdminCategory/Index.php?'.$result, false);
     }
+    
+    public function display(){
+        $modelAction=new CategoryFunctionality();
+        $result=$modelAction->DisplayCategory($this->model);
+        //GeneralClass::redirect('/project/itool/AdminCategory/Index.php?'.$result, false);   
+    }
 }
 
 echo '<script>alert("entered controller")</script>';
