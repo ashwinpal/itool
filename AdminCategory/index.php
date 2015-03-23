@@ -28,8 +28,6 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         $controllerObj->formValues();
         $controllerObj->insert();
        // $controllerObj->display();
-
-        
     }
 
 ?>
@@ -49,7 +47,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         
         <div id="add_category">
            <h3>Add New Category</h3>
-            <form action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+            <form action="" method="post">
                 <label>Category Name:</label>  <input type="text" name="name" id="name" /><br/>
                 <input type="submit" name="submit" id="submit" value="Add Category" />
             </form>
@@ -63,14 +61,15 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
                        
             </form>           
         </div>
-<!--         <div id="update_category">
-            <h3>Update Category</h3>
-            <form>
-                <label>Category Id:</label>  <input type="text" name="name" id="name" /><br/>
+    <div id="update_category">
+          <h3>Update Category</h3>
+          <form action="" method="post">
+                <?php $controllerObj->update(); ?>
+<!--                <label>Category Id:</label>  <input type="text" name="id" id="id" /><br/>
                 <label>Category Name:</label>  <input type="text" name="name" id="name" /><br/>              
-                <input type="submit" name="submit" id="submit" value="Update Category" />
+                <input type="submit" name="submit" id="submit" value="Update Category" />-->
             </form>
-        </div>-->
+        </div>
 
         <?php        
             if($_SERVER['QUERY_STRING'] !==""){

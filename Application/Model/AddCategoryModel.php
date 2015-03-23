@@ -80,4 +80,25 @@ class CategoryFunctionality{
             }
             echo '</table>';
     }
+    
+    public function UpdateCategory($Cname){
+        
+//        $statement = $this->dbcon->prepare("update category (category_name) values (:category_name)");
+//        
+//        $statement->bindValue(":category_name", $Cname->getCategory_Name());
+//        
+//        $success=$statement->execute();
+//                
+//        $statement->closeCursor();
+//        
+//            if($success)
+//            {
+//                return 1;
+//
+//            }
+//            else
+//            {
+//                return 0;
+//            } 
+    }
 }

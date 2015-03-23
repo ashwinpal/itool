@@ -32,7 +32,11 @@ class AdminCategoryController implements iAction{
     public function display(){
         $modelAction=new CategoryFunctionality();
         $result=$modelAction->DisplayCategory($this->model);
-        //GeneralClass::redirect('/project/itool/AdminCategory/Index.php?'.$result, false);   
+    }
+    
+    public function update(){
+        $modelAction=new CategoryFunctionality();
+        $result=$modelAction->UpdateCategory($this->model);       
     }
 }
 
