@@ -36,41 +36,43 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
              <h1>Category</h1>
         </div>
         <hr/>
-        
-        <div id="category_nav">
-            <ul>
-                <li><a href="#">Add Category</a></li>
-                <li><a href="#">View Category</a></li>
-                <li><a href="#">Delete Category</a></li>
-            </ul>
-        </div>
-        
-        <div id="add_category">
-           <h3>Add New Category</h3>
+
+
+        <div role="tabpanel">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Add New Category</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">View Category</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Update Category</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="home">
+          <h3>Add New Category</h3>
             <form action="" method="post">
                 <label>Category Name:</label>  <input type="text" name="name" id="name" /><br/>
                 <input type="submit" name="submit" id="submit" value="Add Category" />
             </form>
-        </div>
-        
-        <div id="view_category">
-          <h3>View Category</h3>
+      </div>
+    <div role="tabpanel" class="tab-pane" id="profile"> 
+        <h3>View Category</h3>
             <form action="" method="post">
-
-               <?php $controllerObj->display(); ?>
-                       
-            </form>           
-        </div>
-    <div id="update_category">
-          <h3>Update Category</h3>
-          <form action="" method="post">
+               <?php $controllerObj->display(); ?>                      
+            </form> 
+    </div>
+      <div role="tabpanel" class="tab-pane" id="messages">
+                    <form action="" method="post">
                 <?php $controllerObj->update(); ?>
-<!--                <label>Category Id:</label>  <input type="text" name="id" id="id" /><br/>
-                <label>Category Name:</label>  <input type="text" name="name" id="name" /><br/>              
-                <input type="submit" name="submit" id="submit" value="Update Category" />-->
             </form>
-        </div>
+      </div>
+    <div role="tabpanel" class="tab-pane" id="settings">...</div>
+  </div>
 
+</div>
+        
         <?php        
             if($_SERVER['QUERY_STRING'] !==""){
             
@@ -84,7 +86,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
             
             }
             
-            echo '<div>'
+            echo '</div>'
         ?>
 
 
