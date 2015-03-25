@@ -59,7 +59,7 @@ ob_start();
         <div id="product_nav">
             <li>
                 <ul>  
-<!--                    <a class="page-links" href="updateInvoices.php">Update invoices</a>-->
+                    <a class="page-links" href="UpdateInvoices.php"  >Update invoices</a>
                 </ul>
             </li>
         </div>

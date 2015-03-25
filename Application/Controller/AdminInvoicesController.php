@@ -47,6 +47,25 @@ class AdminInvoicesController implements iAction{
             GeneralClass::redirect('/project/itool/invoicesAdmin/Index.php?'.$result, false);
     }
        
+      public function delete(){
+        
+            $modelAction = new invoicesFunctionality();
+        
+            $result=$modelAction->DeleteValues($this->model);
+            
+            GeneralClass::redirect('/project/itool/invoicesAdmin/DeleteInvoices.php?'.$result, false);
+    }    
+    
+    
+    public function update($value){
+        
+            $modelAction = new invoicesFunctionality();
+        
+            $result=$modelAction->UpdateValues($value);
+            
+            GeneralClass::redirect('/project/itool/invoicesAdmin/UpdateInvoices.php?'.$result, false);        
+        
+    }
 }
 
 
@@ -59,4 +78,4 @@ $controllerObj = new AdminInvoicesController();
 //    $view = $_GET['action'];
 //    
 //    $controllerObj->Action($view);
-//    }
+//   }

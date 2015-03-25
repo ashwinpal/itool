@@ -103,6 +103,58 @@ class invoicesFunctionality
     
     }
     
+    public function DeleteValues($model){
+        
+        $sql="Delete from product_invoices where product_id = :product_id ";
+        
+        $statement = $this->dbcon->prepare($sql);
+
+        $statement->bindValue(':product_id', $model->getproductId());
+        
+        $success = $statement->execute();
+
+        //$row_count=$statement->rowCount();
+        $statement->closeCursor();
+
+        //$jobID = $this->dbcon->lastInsertId();
+
+        if($success)
+        {
+            return 1;
+
+        }
+        else
+        {
+            return 0;
+        }        
+    }
+    
+    public function UpdateValues($value){
+        
+        $sql="Update product_invoices set quantity = 1 where product_id = :prodct_id";
+        
+        $statement = $this->dbcon->prepare($sql);
+
+        $statement->bindValue(':product_id', "20");
+       // $statement->bindValue(':count', ($model->getCount()+1));
+        
+        $success = $statement->execute();
+
+        //$row_count=$statement->rowCount();
+        $statement->closeCursor();
+
+        //$jobID = $this->dbcon->lastInsertId();
+
+        if($success)
+        {
+            return 1;
+
+        }
+        else
+        {
+            return 0;
+        }        
+    }
 
 // public function deleteValues($model)
 //    {
