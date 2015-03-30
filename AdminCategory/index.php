@@ -36,42 +36,59 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
              <h1>Category</h1>
         </div>
         <hr/>
+        <div>
+             <h3>Add New Category</h3>
+             <form action="" method="post">
+                <label>Category Name:</label>  <input type="text" name="name" id="name" /><br/>
+                <input type="submit" name="submit" id="submit" value="Add Category" />
+            </form>
+        </div>
 
+        <div>
+            <h3>View Category</h3>
+            <form action="" method="post">
+               <?php 
+                $controllerObj->display();  
+                
+               ?>                      
+            </form> 
+        </div>
+<!--        <div>
+            <h3>Update Category</h3>
+            <form action="" method="post">
+                <input type="text" name="uname" value="" id="uname" /><br/>
+                <input type="button" name="update" id="update" value="update" />
+                <?php //$controllerObj->update(); ?>
+            </form>
+        </div>-->
+        
+<!--<div role="tabpanel">
 
-        <div role="tabpanel">
+   Nav tabs 
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#home" class="page-links" aria-controls="home" role="tab" data-toggle="tab">Add New Category</a></li>
+      <li role="presentation"><a href="#view" class="page-links" aria-controls="profile" role="tab" data-toggle="tab">View Category</a></li>
+      <li role="presentation"><a href="#update" class="page-links" aria-controls="messages" role="tab" data-toggle="tab">Update Category</a></li>
+      <li role="presentation"><a href="#settings" class="page-links" aria-controls="settings" role="tab" data-toggle="tab">Delete Category</a></li>
+    </ul>
 
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Add New Category</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">View Category</a></li>
-    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Update Category</a></li>
-    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Delete Category</a></li>
-  </ul>
-
-  <!-- Tab panes -->
+   Tab panes 
   <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="home">
+    <div role="tabpanel" class="tab-pane active" id="all">
           <h3>Add New Category</h3>
             <form action="" method="post">
                 <label>Category Name:</label>  <input type="text" name="name" id="name" /><br/>
                 <input type="submit" name="submit" id="submit" value="Add Category" />
             </form>
-      </div>
-    <div role="tabpanel" class="tab-pane" id="profile"> 
+    </div>
+    <div role="tabpanel" class="tab-pane" id="view"> 
         <h3>View Category</h3>
             <form action="" method="post">
-               <?php $controllerObj->display(); ?>                      
+               <?php //$controllerObj->display(); ?>                      
             </form> 
     </div>
-      <div role="tabpanel" class="tab-pane" id="messages">
-                    <form action="" method="post">
-                <?php $controllerObj->update(); ?>
-            </form>
-      </div>
-    <div role="tabpanel" class="tab-pane" id="settings">...</div>
-  </div>
 
-</div>
+</div>-->
         
         <?php        
             if($_SERVER['QUERY_STRING'] !==""){

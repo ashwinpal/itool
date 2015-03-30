@@ -34,16 +34,22 @@ class AdminCategoryController implements iAction{
         $result=$modelAction->DisplayCategory($this->model);
     }
     
-    public function update(){
+    public function update($n,$id){
+        
+        $this->model = new AddCategory();
+        $this->model->setCategory_Id($id);
+        $this->model->setCategory_Name($n);
         $modelAction=new CategoryFunctionality();
-        $result=$modelAction->UpdateCategory($this->model);       
+        $result=$modelAction->UpdateCategory($this->model);  
+        if($result){
+            GeneralClass::redirect('/project/itool/AdminCategory/Index.php');
+        }
     }
 }
 
 echo '<script>alert("entered controller")</script>';
 
 $controllerObj = new AdminCategoryController();
-
 
 //$view = $_GET['action'];
 //

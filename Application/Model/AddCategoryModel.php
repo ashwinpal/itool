@@ -38,16 +38,15 @@ class CategoryFunctionality{
         $this->dbcon = $obj->dbConnect();
     }
     
-    public function InsertCategory($model){
+    public function InsertCategory($newCatg){
         
         $query="insert into category (category_name) "
                 . "values (:category_name)";
         
         $statement = $this->dbcon->prepare($query);
 
-        $statement->bindValue(':category_name', $model->getCategory_Name());
-        
-        
+        $statement->bindValue(':category_name', $newCatg->getCategory_Name());
+               
         $success = $statement->execute();
                  
         $statement->closeCursor(); 
@@ -71,34 +70,38 @@ class CategoryFunctionality{
         
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         
-         echo '<table border="1"> <th>Id</th><th>Name</th>';
+         echo '<table border="1"> <th>Id</th><th>Name</th><th>Action</th>';
          foreach ($statement as $q){
                 
                 echo '<tr>';
-                echo '<td>'. $q['category_id'].'</td><td>'. $q['category_name'].'</td>';
+                echo '<td>'. $q['category_id'].'</td><td>'. $q['category_name'].'</td>'
+                        . '<td><a href=update.php?id='.$q['category_id'].'>Update</a></td>';
                 echo '</tr>';                
             }
             echo '</table>';
     }
     
     public function UpdateCategory($Cname){
+     
+        $query =("update category set category_name=:category_name "."where category_id=:category_id");
         
-//        $statement = $this->dbcon->prepare("update category (category_name) values (:category_name)");
-//        
-//        $statement->bindValue(":category_name", $Cname->getCategory_Name());
-//        
-//        $success=$statement->execute();
-//                
-//        $statement->closeCursor();
-//        
-//            if($success)
-//            {
-//                return 1;
-//
-//            }
-//            else
-//            {
-//                return 0;
-//            } 
+        $statement = $this->dbcon->prepare($query);     
+        
+        $statement->bindValue(":category_id", $Cname->getCategory_Id());
+        $statement->bindValue(":category_name", $Cname->getCategory_Name());
+
+        $success = $statement->execute();
+                
+        $statement->closeCursor();
+        
+            if($success)
+            {
+                return 1;
+
+            }
+            else
+            {
+                return 0;
+            } 
     }
 }
