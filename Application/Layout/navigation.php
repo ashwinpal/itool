@@ -4,12 +4,12 @@
                     <li><a href="<?php echo '../Application/Controller/HomeController.php?action=Index';?>" ><i class="fa fa-home fa-lg"></i> Home</a></li>
                     <li><a href="<?php echo '../Application/Controller/AdminController.php?action=Index';?>"><i class="fa fa-home fa-lg"></i> Product List</a></li>  
                     <li><a href="<?php echo '../Application/Controller/AdminController.php?action=Index';?>"><i class="fa fa-home fa-lg"></i> Purchase List</a></li>   
-                    <li><a href="#"><i class="fa fa-home fa-lg"></i> Track Purchase</a></li>  
-                    <li><a href="#"><i class="fa fa-home fa-lg"></i> Invoices And Bills</a></li> 
-                    <li><a href="#"><i class="fa fa-home fa-lg"></i> Stock List</a></li>
-                    <li><a href="#"><i class="fa fa-home fa-lg"></i> Reports</a></li>
-                    <li><a href="#"><i class="fa fa-home fa-lg"></i> Charts</a></li>
-                    <li><a href="#"><i class="fa fa-home fa-lg"></i> Rate a Product</a></li>                     
+                    <li><a href="<?php echo '../Application/Controller/AdminSearchController.php?action=Index';?>"><i class="fa fa-home fa-lg"></i> Track Purchase</a></li>  
+                    <li><a href="<?php echo '../Application/Controller/AdminSearchController.php?action=Index';?>"><i class="fa fa-home fa-lg"></i> Invoices And Bills</a></li> 
+                    <li><a href="<?php echo '../Application/Controller/AdminSearchController.php?action=Index';?>"><i class="fa fa-home fa-lg"></i> Stock List</a></li>
+                    <li><a href="<?php echo '../Application/Controller/AdminSearchController.php?action=Index';?>"><i class="fa fa-home fa-lg"></i> Reports</a></li>
+                    <li><a href="<?php echo '../Application/Controller/AdminSearchController.php?action=Index';?>"><i class="fa fa-home fa-lg"></i> Charts</a></li>
+                    <li><a href="<?php echo '../Application/Controller/AdminSearchController.php?action=Index';?>"><i class="fa fa-home fa-lg"></i> Rate a Product</a></li>                     
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

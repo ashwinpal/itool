@@ -51,9 +51,9 @@ and open the template in the editor.
                 </button>
                 <a class="navbar-brand" href="index.html">I-Tool</a>
             </div>
-            <form class="navbar-form navbar-left collapse navbar-collapse navbar-ex1-collapse" role="search">
+            <form action="../SearchResult/Index.php" class="navbar-form navbar-left collapse navbar-collapse navbar-ex1-collapse" role="search">
                       <div class="form-group">
-                        <input type="text" id="search_txt" class="form-control" placeholder="Search">
+                          <input type="text" name="query" id="search_txt" class="form-control" placeholder="Search">
                       </div>
                       <button type="submit" id="btn_search" class="btn btn-default">Search</button>
                     </form>

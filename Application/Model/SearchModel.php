@@ -132,29 +132,44 @@ class SearchFunctionality{
             return 0;
         }        
     }
-//    function display()
-//    {
-//        $this->dbConnect();
-//        
-//        $sql="select firstname,lastname,email,qualification from jobapplicant";
-//        
-//         $q = $this->dbcon->query($sql);
-//         $q->setFetchMode(PDO::FETCH_ASSOC);
-//        
-//         
-//         echo'<table><tr><th>FirstName</th><th>LastName</th><th>Email</th><th>Qualification</th></tr>';
-//         
-//         foreach ($q as $r)
-//         {
-//             echo "<tr>";
-//             echo "<td>".$r['firstname']."</td><td>".$r['lastname']."</td><td>".$r['email']."</td><td>".$r['qualification']."</td><td>";
-//             echo '</tr>';
-//             
-//         }
-//        
-//         echo'</table>';
-//    }
+    
+    public function GetProductId($word){
         
+        $sql="select product_id from product_list where product_name = :word";
+        
+        $statement = $this->dbcon->prepare($sql);
+        
+        $statement->bindValue(':word', $word);
+
+        $statement->execute();
+        
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+        
+        return $row['product_id'];
+        
+        //var_dump($row);
+        
+    }
+    
+    public function SearchDatabase($id){
+        
+      //  $searchList = array();
+        
+        $sql="select * from import_product where product_id = :id LIMIT 1";
+        
+        $statement = $this->dbcon->prepare($sql);
+        
+        $statement->bindValue(':id', $id);
+
+        $statement->execute();
+        
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+        
+        return $row['batch_number'];
+
+        
+    }
+            
 }
     
     
