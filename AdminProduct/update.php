@@ -5,7 +5,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/Include
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/ValidationLibrary.php';
 
-include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/ProductCategoryController.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/AdminProductController.php';
 
     LayoutClass::includeHeader();
 ?>   
@@ -23,7 +23,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Pr
 
     if(isset($_POST['submit'])){
         
-        $controllerObj->update($_POST['name'],$id);
+        $controllerObj->update($id,$_POST['name'],$_POST['desc'],$_POST['catid'],$_POST['price'],$_POST['image']);
            
     }
 ?>

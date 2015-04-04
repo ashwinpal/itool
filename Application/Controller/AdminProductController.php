@@ -39,10 +39,19 @@ class AdminProductController implements iAction{
         GeneralClass::redirect('/project/itool/AdminProduct/Index.php?'.$result, false);
     }
     
-    public function update(){
+    public function update($id,$n,$d,$c,$b,$i){
+       $this->model = new AddProduct();   
+       $this->model->setProduct_Id($id);
+       $this->model->setProduct_Name($n);
+       $this->model->setProduct_Description($d);
+       $this->model->setCategory_Id($c);
+       $this->model->setBuying_Price($b);
+       $this->model->setImage($i);
        $modelAction= new ProductFunctionalty();
-        $result=$modelAction->UpdateProduct($this->model);
-        
+       $result=$modelAction->UpdateProduct($this->model);
+        if($result){
+            GeneralClass::redirect('/project/itool/AdminProduct/Index.php');
+        }
     }
 }
 echo '<script>alert("entered controller")</script>';

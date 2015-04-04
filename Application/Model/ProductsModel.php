@@ -20,15 +20,15 @@ class AddProduct{
     private $buying_price;
     private $image;
     
-    function __construct($product_id, $product_name, $product_description, $category_id, $buying_price, $image)
-    {
-        $this->product_id=$product_id;
-        $this->product_name=$product_name;
-        $this->product_description=$product_description;
-        $this->category_id=$category_id;
-        $this->buying_price=$buying_price;
-        $this->image=$image;
-    }
+//    function __construct()
+//    {
+//        $this->product_id=$product_id;
+//        $this->product_name=$product_name;
+//        $this->product_description=$product_description;
+//        $this->category_id=$category_id;
+//        $this->buying_price=$buying_price;
+//        $this->image=$image;
+//    }
 
     public function getProduct_Id(){
         return $this->product_id;        
@@ -108,7 +108,7 @@ class ProductFunctionalty{
                . '<td>'.$q['product_description'].'</td>'
                . '<td>'.$q['category_id'].'</td>'
                . '<td>'.$q['buying_price'].'</td><td>'.$q['image'].'</td>'
-               . '<td><a href=update.php?id='.$q['category_id'].'>Update</a></td>';
+               . '<td><a href=update.php?id='.$q['product_id'].'>Update</a></td>';
            echo '</tr>';  
          }
         echo '</table>';
@@ -138,5 +138,32 @@ class ProductFunctionalty{
         else {
             return 0;
         }
+    }
+    
+    public function UpdateProduct($Pname){
+        $query="update product_list set product_id=:product_id, product_name=:product_name, product_description=:product_description, category_id=:category_id, buying_price=:buying_price, image=:image where product_id=:product_id ";   
+        
+        $statement = $this->dbcon->prepare($query);     
+        
+        $statement->bindValue(":product_id", $Pname->getProduct_Id());
+        $statement->bindValue(":product_name", $Pname->getProduct_Name());
+        $statement->bindValue(":product_description", $Pname->getProduct_Decription());
+        $statement->bindValue(":category_id", $Pname->getCategory_Id());
+        $statement->bindValue(":buying_price", $Pname->getBuying_Price());
+        $statement->bindValue(":image", $Pname->getImage());
+
+        $success = $statement->execute();
+                
+        $statement->closeCursor();
+        
+            if($success)
+            {
+                return 1;
+
+            }
+            else
+            {
+                return 0;
+            }      
     }
 }
