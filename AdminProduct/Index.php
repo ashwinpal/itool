@@ -82,10 +82,10 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
             echo '<div id = "result">';
             
             if($_SERVER['QUERY_STRING']==1)
-            { echo "Keyword has been added."; }
+            { echo "New Product Has Been Inserted."; }
             else
                 if($_SERVER['QUERY_STRING']==0)
-            { echo "Error in inserting keyword."; }
+            { echo "Can Not Insert."; }
             
             }
             

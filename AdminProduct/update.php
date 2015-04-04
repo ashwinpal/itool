@@ -30,9 +30,13 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Pr
         <div>
             <h3>Update Category</h3>
             <form action="update.php?id=<?=$id?>" method="post">
-                <input type="text" name="name" value="" id="name" /><br/>
-                <input type="text" name="" />
-                <input type="submit" name="submit" id="submit" value="update" />               
+                <label>Product Id:</label>  <input type="text" name="id" id="id" /><br/>
+                <label>Product Name:</label>  <input type="text" name="name" id="name" /><br/>
+                <label>Product Description:</label>  <textarea rows="3" cols="19" name="desc" id="desc" ></textarea><br/>
+                <label>Category Id:</label> <input type="text" name="catid" id="catid" /><br/>
+                <label>Buying Price</label> <input type="text" name="price" id="price" /><br/>
+                <label>Image:</label> <input type="text" name="image" id="image" /><br/>
+                <input type="submit" name="submit" id="submit" value="Update Product" />
             </form>
         </div>
 

@@ -115,11 +115,10 @@ class ProductFunctionalty{
     }
     
     public function InsertProduct($newProd){
-        
-        $query=" insert into product_list (product_id, product_name, product_description,"
-                . " category_id, buying_price, image) values (:product_id, :product_name"
-                . ":product_description, :category_id, :buying_price, :image)";
-        
+
+        $query=" insert into product_list (product_id, product_name, product_description, category_id, buying_price, image) "
+                . "values(:product_id, :product_name, :product_description, :category_id, :buying_price, :image)";
+       
         $statement = $this->dbcon->prepare($query);
         
         $statement->bindValue(':product_id', $newProd->getProduct_Id());
