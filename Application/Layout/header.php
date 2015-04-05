@@ -4,6 +4,12 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+session_start();
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/NotificationModel.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/MessageModel.php';
+?>
+
 <html>
     <head>
             <meta charset="utf-8">
@@ -42,6 +48,72 @@ and open the template in the editor.
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
+            
+<?php
+
+        if(isset($_POST["msgSubmit"])){
+    
+            $result = 0;
+
+            $rec = explode(",", $_POST['receiver']);
+
+            $objNotify = new NotificationFunctionality();
+            
+            
+            if($rec[0]!="")
+            {
+            $result = $objNotify->checkRecepient($rec);
+
+                if($result > 0){
+
+                    $notifyModel = new Notification_SystemModel();
+
+                    $notifyModel->setuserId($_SESSION["uid"]);
+                    $notifyModel->setalertDescription($_POST['subject']);
+                    $notifyModel->setalertContent($_POST['msgText']);
+
+                    $result = $objNotify->sendMessage($notifyModel);
+                    
+                }
+               else{
+                   $result = -1;
+               } 
+        }
+        else{
+            $result = -1;
+        }
+        
+        if($result > -1){
+            
+            $result = $objNotify->delieverMessage($rec, $result);
+        }
+        else{
+            $result = -1;
+        }
+        
+        
+        if($result > -1){
+            
+            echo'<div class="alert alert-success alert-dismissible text-center" role="alert">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <strong >Success!!!</strong> Message was sent.
+                 </div>';
+            
+        }
+        else {
+
+            echo'<div class="alert alert-danger alert-dismissible text-center" role="alert">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <strong>Sorry !!!</strong> Message was not sent, check you entry! 
+                 </div>';
+            
+        }
+        
+    }
+
+
+?>
+            
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -62,12 +134,72 @@ and open the template in the editor.
                 <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-question-circle fa-lg"></i></a>
                 </li>
-                <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
+                <li class="dropdown"><a href="" data-toggle="modal" data-target="#messageModal">
                         <i class="fa fa-pencil-square-o fa-lg"></i></a>
                 </li>
+                
+                <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="messageSubject">New message</h4>
+                    </div>
+                    
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">  
+                    <div class="modal-body">
+                      
+                        <div class="form-group">
+                          <label for="recipient-name" class="control-label">Recipient:</label>
+                          <input type="text" name="receiver" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                          <label for="recipient-subject" class="control-label">Subject:</label>
+                          <input type="text" name="subject" class="form-control" id="recipient-subject">
+                        </div>
+                        <div class="form-group">
+                          <label for="message-text" class="control-label">Message:</label>
+                          <textarea class="form-control" name="msgText" id="message-text"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="submit" name="msgSubmit" class="btn btn-primary">Send message</button>
+                    </div>
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu alert-dropdown">
+                        
+                        <?php
+                        
+                        $objMsg = new MessageFunctionality();
+                        
+                        $msgArr = $objMsg->retrieve5Msg($_SESSION['uid']);
+                        
+                        //var_dump($msgArr);
+                        
+                        if($msgArr != NULL){
+                            
+                               foreach($msgArr as $msg){
+                                
+                                   //var_dump($msg);    
+                                   
+                                echo '<li><a href="#">'.$msg->getalertDescription().'</a></li>';
+                            }
+                        }
+                        else{
+                            
+                            echo '<li>No Messages !!!</li>';
+                            
+                        }
+                        ?>
+                        
                         <li>
                             <a href="#">Message.....</a>
                         </li>
@@ -93,7 +225,7 @@ and open the template in the editor.
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> User <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?=$_SESSION['uid']?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -105,3 +237,5 @@ and open the template in the editor.
                     </ul>
                 </li>
             </ul>
+            
+
