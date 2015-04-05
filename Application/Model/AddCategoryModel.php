@@ -72,7 +72,7 @@ class CategoryFunctionality{
         
          echo '<table border="1"> <th>Id</th><th>Name</th><th>Action</th>';
          foreach ($statement as $q){
-                
+            
                 echo '<tr>';
                 echo '<td>'. $q['category_id'].'</td><td>'. $q['category_name'].'</td>'
                         . '<td><a href=update.php?id='.$q['category_id'].'>Update</a></td>';
@@ -81,7 +81,30 @@ class CategoryFunctionality{
             echo '</table>';
     }
     
-    public function UpdateCategory($Cname){
+//    public function DeleteCategory($model){
+//        
+//        $query="Delete from search where category_id = :category_id";
+//        
+//        $statement = $this->dbcon->prepare($query);
+//
+//        $statement->bindValue(':category_id', $model->getCategory_Id());
+//        
+//        $success = $statement->execute();
+//
+//        $statement->closeCursor();
+//
+//        if($success)
+//        {
+//            return 1;
+//
+//        }
+//        else
+//        {
+//            return 0;
+//        }
+//    }
+
+        public function UpdateCategory($Cname){
      
         $query =("update category set category_name=:category_name "."where category_id=:category_id");
         

@@ -45,6 +45,12 @@ class AdminCategoryController implements iAction{
             GeneralClass::redirect('/project/itool/AdminCategory/Index.php');
         }
     }
+    
+//    public function delete(){
+//        $modelAction = new CategoryFunctionality();        
+//        $result=$modelAction->DeleteCategory($this->model);          
+//        GeneralClass::redirect('/project/itool/AdminCategory/Delete.php?'.$result, false);
+//        }    
 }
 
 echo '<script>alert("entered controller")</script>';
