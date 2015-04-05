@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 
 include 'Application/Class/GeneralClass.php';
 $_SESSION["uid"] = "USR012";
