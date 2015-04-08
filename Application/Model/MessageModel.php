@@ -93,6 +93,32 @@ class MessageFunctionality{
         return NULL;
     }
     
+    public function retrieveMsgContent($id){
+        
+        $sql="select alert_content from notification_system where alert_id = :id";
+        
+        $statement = $this->dbcon->prepare($sql);
+
+        $statement->bindValue(':id', $id);
+
+        $statement->execute();
+        
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+        
+        
+        $row_count=$statement->rowCount();
+            
+         if($row_count > 0)
+         {
+                 return $row['alert_content'];
+           
+         }
+            
+            
+    }
+        
+   
+    
     public function retrieveMsgSub($list){
         
         $subjectList = array();
