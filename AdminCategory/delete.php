@@ -1,47 +1,25 @@
 <?php
 
-ob_start();
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/GeneralClass.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/AddCategoryModel.php';
 
-include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/IncludeClass.php';
+$id=0;
 
-include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/ValidationLibrary.php';
+if(isset($_GET['id'])){
+    $id=$_GET['id'];
+}
 
-include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/AdminCategoryController.php';
+$objModel = new CategoryFunctionality();
 
-LayoutClass::includeHeader();
+$r = $objModel ->DeleteCategory($id);
 
-?>
- 
-    <?php 
-        LayoutClass::includeAdminNav();
-    ?>
+if($r){
     
-    <?php        
-        if(onsubmitCheck('submit'))            
-            {               
-                $controllerObj->formValues();
-                $controllerObj->delete();            
-            }    
-    ?>
+    GeneralClass::redirect('../AdminCategory/', false);
 
- <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-             
-    </form>
-<br><br>
-        <?php
-        
-            if($_SERVER['QUERY_STRING'] !==""){
-            
-            echo '<div id = "result">';
-            
-            if($_SERVER['QUERY_STRING']==1)
-            { echo "Category has been deleted."; }
-            else
-                if($_SERVER['QUERY_STRING']==0)
-            { echo "Error in deleting category."; }
-            
-            }           
-            echo '<div>'
-        ?>
-   
-            
+    
+}
+ else {
+    
+     echo "Error!!!, you cannot delete a category if it has products under it";
+}

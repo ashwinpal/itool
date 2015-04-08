@@ -70,39 +70,42 @@ class CategoryFunctionality{
         
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         
-         echo '<table border="1"> <th>Id</th><th>Name</th><th>Action</th>';
+         echo '<table border="1"> <th>Id</th><th>Name</th><th>Update</th><th>Delete</th>';
          foreach ($statement as $q){
             
                 echo '<tr>';
                 echo '<td>'. $q['category_id'].'</td><td>'. $q['category_name'].'</td>'
-                        . '<td><a href=update.php?id='.$q['category_id'].'>Update</a></td>';
+                        . '<td><a href=update.php?id='.$q['category_id'].'>Update</a></td>'
+                        . '<td><a href=delete.php?id='.$q['category_id'].'>Delete</a></td>';
                 echo '</tr>';                
             }
             echo '</table>';
     }
     
-//    public function DeleteCategory($model){
-//        
-//        $query="Delete from search where category_id = :category_id";
-//        
-//        $statement = $this->dbcon->prepare($query);
-//
-//        $statement->bindValue(':category_id', $model->getCategory_Id());
-//        
-//        $success = $statement->execute();
-//
-//        $statement->closeCursor();
-//
-//        if($success)
-//        {
-//            return 1;
-//
-//        }
-//        else
-//        {
-//            return 0;
-//        }
-//    }
+    public function DeleteCategory($id){
+        
+        $query="Delete from category where category_id = :category_id";
+        
+        $statement = $this->dbcon->prepare($query);
+
+        $statement->bindValue(':category_id', $id);
+        
+         
+        
+        $success = $statement->execute();
+
+        $statement->closeCursor();
+
+        if($success)
+        {
+            return 1;
+
+        }
+        else
+        {
+            return 0;
+        }
+    }
 
         public function UpdateCategory($Cname){
      
