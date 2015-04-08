@@ -44,7 +44,7 @@ class AdminInvoicesController implements iAction{
         
             $result=$modelAction->insertValues($this->model);
             
-            GeneralClass::redirect('/project/itool/invoicesAdmin/Index.php?'.$result, false);
+            GeneralClass::redirect('/project/itool/invoicesAdmin/Insert.php?'.$result, false);
     }
        
       public function delete(){
@@ -53,25 +53,40 @@ class AdminInvoicesController implements iAction{
         
             $result=$modelAction->DeleteValues($this->model);
             
-            GeneralClass::redirect('/project/itool/invoicesAdmin/DeleteInvoices.php?'.$result, false);
+            GeneralClass::redirect('/project/itool/invoicesAdmin/deleteInvoices.php?'.$result, false);
     }    
     
     
-    public function update($value){
+    public function update($in,$qty,$id,$sp,$pi){
         
-            $modelAction = new invoicesFunctionality();
+        $this->model = new addInvoices();
+        $this->model->setInvoiceNumber($in);
+        $this->model->setQuantity($qty);
+        $this->model->setInvoiceDate($id);
+        $this->model->setSellingPrice($sp);
+        $this->model->setProductId($pi);
+        $modelAction=new invoiceFunctionality();
+        $result=$modelAction->update($this->model);  
+                      
+               
+
+        if($result){
+            GeneralClass::redirect('/project/itool/invoicesAdmin/Index.php?r='.$result,false);
+        }
+    }
+    
+    public function display(){
+        $modelAction = new invoicesFunctionality();
         
-            $result=$modelAction->UpdateValues($value);
+        $result=$modelAction->DisplayInvoices($this->model);
             
-            GeneralClass::redirect('/project/itool/invoicesAdmin/UpdateInvoices.php?'.$result, false);        
-        
     }
 }
 
 
 echo '<script>alert("entered controller")</script>';
 
-$controllerObj = new AdminInvoicesController();
+$controllerObject = new AdminInvoicesController();
 
 //if(isset($_GET['action']))
 //    {
