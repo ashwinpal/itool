@@ -105,31 +105,31 @@ class invoicesFunctionality
     
     public function DisplayInvoices(){
         
-        $query="select product_id, quantity, invoice_date, selling_price, user_id from product_invoice";
+        $query="select invoice_number, product_id, quantity, invoice_date, selling_price, user_id from product_invoice";
         
         $statement = $this->dbcon->query($query);
         
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         
-         echo '<table border="1"> <th>Product Id</th><th>Quantity</th><th>Invoice Date</th><th>Selling Price</th><th>User Id</th><th>Action</th>';
+         echo '<table border="1"> <th>Product Id</th><th>Quantity</th><th>Invoice Date</th><th>Selling Price</th><th>User Id</th><th>Update</th><th>Delete</th>';
          foreach ($statement as $q){
                 
                 echo '<tr>';
                 echo '<td>'. $q['product_id'].'</td><td>'. $q['quantity'].'</td><td>'. $q['invoice_date'].'</td><td>'. $q['selling_price'].'</td><td>'. $q['user_id'].'</td>'
-                        . '<td><a href=updateInvoices.php?id='.$q['product_id'].'>Edit</a></td>'
-                        ;
+                        . '<td><a href=updateInvoices.php?id='.$q['invoice_number'].'>Update</a></td>'
+                        . '<td><a href=deleteInvoices.php?id='.$q['invoice_number'].'>Delete</a></td>' ;
                 echo '</tr>';                
             }
             echo '</table>';
     }
     
-    public function DeleteValues($model){
+    public function DeleteValues($id){
         
-        $sql="Delete from product_invoice where product_id = :product_id ";
+        $sql="Delete from product_invoice where invoice_number = :id ";
         
         $statement = $this->dbcon->prepare($sql);
 
-        $statement->bindValue(':product_id', $model->getproductId());
+        $statement->bindValue(':id', $id);
         
         $success = $statement->execute();
 
@@ -149,17 +149,21 @@ class invoicesFunctionality
         }        
     }
     
-    public function UpdateValues($value){
+    public function UpdateValues($in,$pr,$qn,$idt,$sp){
         
-        $sql="Update product_invoice set product_id = :product_id,quantity = :quantity, invoice_date = :invoice_date, selling_price = :selling_price where invoice_number = :invoice_number";
+       $sql="Update product_invoice set product_id = :product_id, quantity = :quantity, invoice_date = :invoice_date, selling_price = :selling_price where invoice_number = :invoice_number";
         
+       
         $statement = $this->dbcon->prepare($sql);
 
-        $statement->bindValue(':invoice_number', $value->getInvoiceNumber());
-        $statement->bindValue(':product_id', $value->getProductId());
-        $statement->bindValue(':quantity', $value->getQuanitity());
-        $statement->bindValue(':invoice_date', $value->getinvoiceDate());
-        $statement->bindValue(':selling_price', $value->getsellingPrice());
+        $statement->bindValue(':invoice_number', $in);
+        $statement->bindValue(':product_id', $pr);
+        $statement->bindValue(':quantity', $qn);
+        $statement->bindValue(':invoice_date', $idt);
+        $statement->bindValue(':selling_price', $sp);
+        
+
+        
         
 
        // $statement->bindValue(':count', ($model->getCount()+1));

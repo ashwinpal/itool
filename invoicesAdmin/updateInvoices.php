@@ -17,14 +17,19 @@ ob_start();
     
     $id=0;
 
-    if(isset($_GET['in'])){
-        $id = $_GET['in'];   
+    if(isset($_GET['id'])){
+        $in = $_GET['id'];   
     }
-
+    
+    
+    
     if(isset($_POST['submit'])){
         
-        $controllerObject->update($in,$_POST['product_id'],$_POST['quantity'],$_POST['invoice_date'],$_POST['selling_price']);
-           
+        //$controllerObject->update($in,$_POST['product_id'],$_POST['quantity'],$_POST['invoice_date'],$_POST['selling_price']);
+        
+        $model = new invoicesFunctionality();
+        
+        $model->UpdateValues($in,$_POST['name'],$_POST['quantity'],$_POST['date'],$_POST['price']);
     }
 ?>
 
@@ -39,9 +44,7 @@ ob_start();
          <div id="product_nav">
             <li>
                 <ul> 
-                    <a class="page-links" href="insert.php"  >Insert invoices</a> &nbsp;
-                    <a class="page-links" href="UpdateInvoices.php"  >Update invoices</a> &nbsp;
-                    <a class="page-links" href="deleteInvoices.php"  >Delete invoices</a> &nbsp;
+                    <a class="page-links" href="insert.php"  >Insert invoices</a> 
                 </ul>
             </li>
         </div>
@@ -52,7 +55,7 @@ ob_start();
                 <label>Product Quantity:</label>  <input type="text" name="quantity" id="quantity" /><br/>
                 <label>Selling Date:</label> <input type="text" name="date" id="date" /> <br/>
                 <label>Selling Price</label> <input type="text" name="price" id="price" /><br/>
-                <input type="submit" name="update" id="update" value="Update invoices" />
+                <input type="submit" name="submit" value="Update invoices" />
             </form>    
 </div>
         <a class="page-links" href="index.php"  ><< Back to List</a>

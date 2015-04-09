@@ -46,9 +46,7 @@ ob_start();
         <div id="product_nav">
             <li>
                 <ul> 
-                    <a class="page-links" href="insert.php"  >Insert invoices</a> &nbsp;
-                    <a class="page-links" href="UpdateInvoices.php"  >Update invoices</a> &nbsp;
-                    <a class="page-links" href="deleteInvoices.php"  >Delete invoices</a> &nbsp;
+                    <a class="page-links" href="insert.php"  >Insert invoices</a> 
                 </ul>
             </li>
         </div>
