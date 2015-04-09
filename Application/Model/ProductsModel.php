@@ -100,7 +100,7 @@ class ProductFunctionalty{
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         
          echo '<table border="1"> <th>Product Id</th><th>Product Name</th><th>Product Description'
-        . '</th><th>Category Id</th><th>Price</th><th>Image</th><th>Action</th>';
+        . '</th><th>Category Id</th><th>Price</th><th>Image</th><th>Update</th><th>Delete</th>';
          
         foreach($statement as $q){
            echo '<tr>';
@@ -108,7 +108,8 @@ class ProductFunctionalty{
                . '<td>'.$q['product_description'].'</td>'
                . '<td>'.$q['category_id'].'</td>'
                . '<td>'.$q['buying_price'].'</td><td>'.$q['image'].'</td>'
-               . '<td><a href=update.php?id='.$q['product_id'].'>Update</a></td>';
+               . '<td><a href=update.php?id='.$q['product_id'].'>Update</a></td>'
+               . '<td><a href=delete.php?id='.$q['product_id'].'>Delete</a></td>';
            echo '</tr>';  
          }
         echo '</table>';
@@ -140,7 +141,31 @@ class ProductFunctionalty{
         }
     }
     
+    public function  DeleteProduct($id){
+        
+        $query="select product_id, product_name from product_list";
+        
+        $statement = $this->dbcon->prepare($query);
+
+        $statement->bindValue(':product_id', $id);
+                       
+        $success = $statement->execute();
+
+        $statement->closeCursor();
+
+        if($success)
+        {
+            return 1;
+
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
     public function UpdateProduct($Pname){
+            
         $query="update product_list set product_id=:product_id, product_name=:product_name, product_description=:product_description, category_id=:category_id, buying_price=:buying_price, image=:image where product_id=:product_id ";   
         
         $statement = $this->dbcon->prepare($query);     
@@ -156,14 +181,14 @@ class ProductFunctionalty{
                 
         $statement->closeCursor();
         
-            if($success)
-            {
-                return 1;
+        if($success)
+        {
+            return 1;
 
-            }
-            else
-            {
-                return 0;
-            }      
+        }
+        else
+        {
+            return 0;
+        }      
     }
 }

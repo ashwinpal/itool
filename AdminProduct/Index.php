@@ -29,17 +29,24 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
              <h1>Product</h1>
         </div>
         <hr/>
-        
-        <div id="product_nav">
+<div role="tabpanel">
+<!--        <div id="product_nav">
             <ul>
                 <li><a href="#">Add Product</a></li>
                 <li><a href="#">View Product</a></li>
                 <li><a href="#">Delete Product</a></li>
             </ul>
-        </div>
-        
+        </div>-->
 
-        <div id="add_product">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" class="page-links" aria-controls="home" role="tab" data-toggle="tab">Add New Product</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" class="page-links" role="tab" data-toggle="tab">View Product</a></li>
+       </ul>
+
+      <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+<!--        <div id="add_product">-->
             <h3>Add New Products</h3>
             <form action="" method="post">
                 <label>Product Id:</label>  <input type="text" name="id" id="id" /><br/>
@@ -49,14 +56,18 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
                 <label>Buying Price</label> <input type="text" name="price" id="price" /><br/>
                 <label>Image:</label> <input type="text" name="image" id="image" /><br/>
                 <input type="submit" name="submit" id="submit" value="Add Product" />
-            </form>
-        </div>
-        <div id="view_product">
+            </form>           
+    </div>
+      
+    <div role="tabpanel" class="tab-pane" id="profile"> 
+<!--        <div id="view_product">-->
             <h3>View Products</h3>
             <form>
                 <?php $controllerObj->display(); ?>
             </form>           
-        </div>
+    </div>
+  </div>
+</div>
 <!--        <div id="update_product">
             <h3>Update Product</h3>
             <form>

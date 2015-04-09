@@ -89,9 +89,7 @@ class CategoryFunctionality{
         $statement = $this->dbcon->prepare($query);
 
         $statement->bindValue(':category_id', $id);
-        
-         
-        
+                       
         $success = $statement->execute();
 
         $statement->closeCursor();
