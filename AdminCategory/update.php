@@ -27,13 +27,27 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
            
     }
 ?>
-        <div>
-            <h3>Update Category</h3>
+    <div id="category_heading">
+       <h1>Category</h1>
+    </div>
+        <hr/>
+        
+<div role="tabpanel">   
+
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" class="page-links" aria-controls="home" role="tab" data-toggle="tab">Update Category</a></li>          
+        </ul>
+
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+<!--            <h3>Update Category</h3>-->
+<br/><br/>
             <form action="update.php?id=<?=$id?>" method="post">
-                <input type="text" name="name" value="" id="name" /><br/>
+                <label>Enter The Category Name: </label>&nbsp;<input type="text" name="name" value="" id="name" /><br/><br/>
                 <input type="submit" name="submit" id="submit" value="update" />               
             </form>
         </div>
-
+    </div>
+</div>
 <?php
     LayoutClass::includeFooter();

@@ -43,7 +43,8 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         </ul>
      <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="home">
-             <h3>Add New Category</h3>
+<!--             <h3>Add New Category</h3>-->
+<br/><br/>
              <form action="" method="post">
                 <label>Category Name:</label>  <input type="text" name="name" id="name" /><br/>
                 <input type="submit" name="submit" id="submit" value="Add Category" />
@@ -51,7 +52,8 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         </div>
 
         <div role="tabpanel" class="tab-pane" id="profile">
-            <h3>View Category</h3>
+            <h3>All Categories</h3>
+            <br/>
             <form action="" method="post">
                <?php 
                 $controllerObj->display();  

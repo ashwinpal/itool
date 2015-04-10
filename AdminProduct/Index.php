@@ -30,14 +30,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         </div>
         <hr/>
 <div role="tabpanel">
-<!--        <div id="product_nav">
-            <ul>
-                <li><a href="#">Add Product</a></li>
-                <li><a href="#">View Product</a></li>
-                <li><a href="#">Delete Product</a></li>
-            </ul>
-        </div>-->
-
+    
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#home" class="page-links" aria-controls="home" role="tab" data-toggle="tab">Add New Product</a></li>
             <li role="presentation"><a href="#profile" aria-controls="profile" class="page-links" role="tab" data-toggle="tab">View Product</a></li>
@@ -68,23 +61,6 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
     </div>
   </div>
 </div>
-<!--        <div id="update_product">
-            <h3>Update Product</h3>
-            <form>
-                <label>Product Id:</label>  <input type="text" name="name" id="name" /><br/>
-                <label>Product Name:</label>  <input type="text" name="name" id="name" /><br/>
-                <label>Product Description:</label>  <textarea rows="3" cols="19" name="desc"></textarea><br/>
-                <label>Category Id:</label> 
-                <select name="U_category">  
-                    <option name="1" value="1">1</option>
-                    <option name="1" value="1">1</option>
-                    <option name="1" value="1">1</option>
-                </select><br/>
-                <label>Buying Price</label> <input type="text" name="price" id="price" /><br/>
-                <label>Image:</label> <input type="file" name="image" id="image" /><br/>
-                <input type="submit" name="submit" id="submit" value="Update Product" />
-            </form>
-        </div>-->
     </body>
 </html>
         <?php        
