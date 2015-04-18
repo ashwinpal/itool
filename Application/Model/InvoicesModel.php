@@ -111,18 +111,53 @@ class invoicesFunctionality
         
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         
-         echo '<table border="1"> <th>Product Id</th><th>Quantity</th><th>Invoice Date</th><th>Selling Price</th><th>User Id</th><th>Update</th><th>Delete</th>';
+         echo '<table border="1"> <th>Product Id</th><th>Quantity</th><th>Invoice Date</th><th>Selling Price</th><th>User Id</th><th>Detail</th><th>Update</th><th>Delete</th>';
          foreach ($statement as $q){
                 
                 echo '<tr>';
                 echo '<td>'. $q['product_id'].'</td><td>'. $q['quantity'].'</td><td>'. $q['invoice_date'].'</td><td>'. $q['selling_price'].'</td><td>'. $q['user_id'].'</td>'
-                        . '<td><a href=updateInvoices.php?id='.$q['invoice_number'].'>Update</a></td>'
+                        . '<td><a href=detail.php?id='.$q['invoice_number'].'>View</a></td>'
+                        .'<td><a href=updateInvoices.php?id='.$q['invoice_number'].'>Update</a></td>'
                         . '<td><a href=deleteInvoices.php?id='.$q['invoice_number'].'>Delete</a></td>' ;
                 echo '</tr>';                
             }
             echo '</table>';
     }
+ 
+    public function DetailInvoices(){
+          $query="select invoice_number, product_id, quantity, invoice_date, selling_price, user_id from product_invoice";
+        
+        $statement = $this->dbcon->query($query);
+        
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        
+         echo '<table border="1"> <th>Product Id</th><th>Quantity</th><th>Invoice Date</th><th>Selling Price</th><th>User Id</th>';
+         foreach ($statement as $q){
+                
+                echo '<tr>';
+                echo '<td>'. $q['product_id'].'</td><td>'. $q['quantity'].'</td><td>'. $q['invoice_date'].'</td><td>'. $q['selling_price'].'</td><td>'. $q['user_id'].'</td>' ;
+                echo '</tr>';                
+            }
+            echo '</table>';
+    }
     
+    public function DisplayById($id){
+        $sql="select * from product_invoice where invoice_number = :id";
+        
+        $statement = $this->dbcon->prepare($sql);
+        
+        $statement->bindValue(':id', $id);
+
+        $success = $statement->execute();
+        
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+        
+        return $row;
+        
+        
+    }
+
+
     public function DeleteValues($id){
         
         $sql="Delete from product_invoice where invoice_number = :id ";
@@ -145,6 +180,7 @@ class invoicesFunctionality
         }
         else
         {
+            
             return 0;
         }        
     }
@@ -162,15 +198,9 @@ class invoicesFunctionality
         $statement->bindValue(':invoice_date', $idt);
         $statement->bindValue(':selling_price', $sp);
         
-
-        
-        
-
-       // $statement->bindValue(':count', ($model->getCount()+1));
         
         $success = $statement->execute();
 
-        //$row_count=$statement->rowCount();
         $statement->closeCursor();
 
         //$jobID = $this->dbcon->lastInsertId();
@@ -185,29 +215,5 @@ class invoicesFunctionality
             return 0;
         }        
     }
-
-// public function deleteValues($model)
-//    {
-// 
-//        $sql="Delete product_invoice where productId = :productId";
-//        
-//        $statement = $this->dbcon->prepare($sql);
-//
-//        $statement->bindValue(':productId', $model->getproductId());
-//        
-//        $success = $statement->execute();
-//
-//        $statement->closeCursor();
-//
-//        if($success)
-//        {
-//            return 1;
-//
-//        }
-//        else
-//        {
-//            return 0;
-//        }        
-//    }
     
     }

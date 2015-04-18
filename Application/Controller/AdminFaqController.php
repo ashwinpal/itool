@@ -33,7 +33,7 @@ class AdminFaqController implements iAction{
         
             $modelAction = new faqFunctionality();
         
-            $result=$modelAction->insertValues($this->model);
+            $result=$modelAction->InsertValues($this->model);
             
             GeneralClass::redirect('/project/itool/AdminFaq/insert.php?'.$result, false);
     }

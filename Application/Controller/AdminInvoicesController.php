@@ -78,9 +78,15 @@ class AdminInvoicesController implements iAction{
     public function display(){
         $modelAction = new invoicesFunctionality();
         
-        $result=$modelAction->DisplayInvoices($this->model);
-            
+        $result=$modelAction->DisplayInvoices($this->model);       
     }
+    
+    public function displayDetail(){
+        $modelAction = new invoicesFunctionality();
+        
+        $result=$modelAction->DetailInvoices($this->model);       
+    }
+    
 }
 
 

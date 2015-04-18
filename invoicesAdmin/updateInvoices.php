@@ -18,18 +18,23 @@ ob_start();
     $id=0;
 
     if(isset($_GET['id'])){
-        $in = $_GET['id'];   
+        $id = $_GET['id'];   
     }
     
-    
-    
+     $iobj = new invoicesFunctionality();
+     
+     $details = $iobj->DisplayById($id);
+     
+     
     if(isset($_POST['submit'])){
         
         //$controllerObject->update($in,$_POST['product_id'],$_POST['quantity'],$_POST['invoice_date'],$_POST['selling_price']);
         
         $model = new invoicesFunctionality();
         
-        $model->UpdateValues($in,$_POST['name'],$_POST['quantity'],$_POST['date'],$_POST['price']);
+        $model->UpdateValues($id,$_POST['name'],$_POST['quantity'],$_POST['date'],$_POST['price']);
+        
+        GeneralClass::redirect('/project/itool/invoicesAdmin', false);
     }
 ?>
 
@@ -50,11 +55,11 @@ ob_start();
         </div>
 <div id="update_invoices">
             <h3>Update invoices</h3>
-            <form action="updateInvoices.php?id=<?=$in?>" method="post">
-                <label>Product Id:</label>  <input type="text" name="name" id="name" /><br/>
-                <label>Product Quantity:</label>  <input type="text" name="quantity" id="quantity" /><br/>
-                <label>Selling Date:</label> <input type="text" name="date" id="date" /> <br/>
-                <label>Selling Price</label> <input type="text" name="price" id="price" /><br/>
+            <form action="updateInvoices.php?id=<?=$id?>" method="post">
+                <label>Product Id:</label>  <input type="text" name="name" id="name" value=<?=$details['product_id']?> /><br/>
+                <label>Product Quantity:</label>  <input type="text" name="quantity" id="quantity" value=<?=$details['quantity']?> /><br/>
+                <label>Selling Date:</label> <input type="text" name="date" id="date" value=<?=$details['invoice_date']?> /> <br/>
+                <label>Selling Price</label> <input type="text" name="price" id="price" value=<?=$details['selling_price']?> /><br/>
                 <input type="submit" name="submit" value="Update invoices" />
             </form>    
 </div>
