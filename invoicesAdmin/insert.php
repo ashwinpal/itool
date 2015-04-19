@@ -43,14 +43,7 @@ ob_start();
              <h1>Invoices & Bills</h1>
         </div>
         <hr/>     
-        <div id="product_nav">
-            <li>
-                <ul> 
-                    <a class="page-links" href="insert.php"  >Insert invoices</a> 
-                </ul>
-            </li>
-        </div>
-        
+               
         <div id="add_product">
             <h3>Add invoices information</h3>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">

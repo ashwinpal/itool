@@ -89,9 +89,6 @@ class AdminInvoicesController implements iAction{
     
 }
 
-
-echo '<script>alert("entered controller")</script>';
-
 $controllerObject = new AdminInvoicesController();
 
 //if(isset($_GET['action']))

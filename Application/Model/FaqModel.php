@@ -47,16 +47,19 @@ class faqFunctionality
     
  public function InsertValues($model)
     {
-        $sql = "insert into faq_table(id, questions, answers)"
-                ."values(:id, :questions, :answers)";
+        $sql = "insert into faq_table(questions, answers)"
+                ."values(:questions, :answers)";
         
         $statement = $this->dbcon->prepare($sql);
         
-        $statement->bindValue(':id', $model->getId());
+        var_dump($model);
+        
         $statement->bindValue(':questions', $model->getQuestions());
         $statement->bindValue(':answers', $model->getAnswers());
         
         $success = $statement->execute();
+        
+        var_dump($success);
         
         $statement->closeCursor();
                 
@@ -79,16 +82,83 @@ class faqFunctionality
         
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         
-         echo '<table border="1"> <th>Id</th><th>Questions</th><th>Answers</th><th>Update</th><th>Delete</th>';
+         echo '<table border="1"><th>Questions</th><th>Answers</th><th>Update</th><th>Delete</th>';
          foreach ($statement as $q){
             
                 echo '<tr>';
-                echo '<td>'. $q['id'].'</td><td>'. $q['questions'].'</td><td>'. $q['answers'].'</td>'
+                echo '<td>'. $q['questions'].'</td><td>'. $q['answers'].'</td>'
                    . '<td><a href=update.php?id='.$q['id'].'>Update</a></td>'
                        . '<td><a href=delete.php?id='.$q['id'].'>Delete</a></td>';
                 echo '</tr>';                
             }
             echo '</table>';
+    }
+    
+       public function DeleteValues($id){
+        
+        $sql="Delete from faq_table where id = :id ";
+        
+        $statement = $this->dbcon->prepare($sql);
+
+        $statement->bindValue(':id', $id);
+        
+        $success = $statement->execute();
+
+        //$row_count=$statement->rowCount();
+        $statement->closeCursor();
+
+        //$jobID = $this->dbcon->lastInsertId();
+
+        if($success)
+        {
+            return 1;
+
+        }
+        else
+        {
+            return 0;
+        }        
+    }
+    
+     public function UpdateValues($id, $q, $a){
+        
+       $sql="Update faq_table set questions = :questions, answers = :answers where id = :id";
+        
+       
+        $statement = $this->dbcon->prepare($sql);
+
+        $statement->bindValue(':id', $id);
+        $statement->bindValue(':questions', $q);
+        $statement->bindValue(':answers', $a);    
+        
+        $success = $statement->execute();
+              
+        $statement->closeCursor();
+
+        //$jobID = $this->dbcon->lastInsertId();
+
+        if($success)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }        
+    }
+    
+    public function DisplayById($id){
+        $sql="select * from faq_table where id = :id";
+        
+        $statement = $this->dbcon->prepare($sql);
+        
+        $statement->bindValue(':id', $id);
+
+        $success = $statement->execute();
+        
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+        
+        return $row;        
     }
     
     }

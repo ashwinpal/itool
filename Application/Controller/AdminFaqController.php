@@ -22,10 +22,8 @@ class AdminFaqController implements iAction{
     public function formValues(){
         
         $this-> model = new FAQ();
-        
-        $this-> model->setId($_POST['id']);
-        $this-> model->setQuestions($_POST['questions']);
-        $this->model->setAnswers($_POST['answers']);
+        $this-> model->setQuestions($_POST['Question']);
+        $this->model->setAnswers($_POST['Answer']);
         
     }
     
@@ -44,9 +42,31 @@ class AdminFaqController implements iAction{
         $result=$modelAction->DisplayFaq($this->model);
             
     }
-}
 
-
-echo '<script>alert("entered controller")</script>';
+     public function delete(){
+        
+            $modelAction = new faqFunctionality();
+        
+            $result=$modelAction->DeleteValues($this->model);
+            
+            GeneralClass::redirect('/project/itool/AdminFaq/delete.php?'.$result, false);
+    }    
+    
+//    public function update($id, $q, $a){
+//        
+//        $this->model = new addFaq();
+//        $this->model->setId($id);
+//        $this->model->setQuestions($q);
+//        $this->model->setAnswers($a);
+//        $modelAction=new faqFunctionality();
+//        $result=$modelAction->update($this->model);  
+//         
+//        var_dump($result);
+//         
+//        if($result){
+//            //GeneralClass::redirect('/project/itool/AdminFaq/Index.php?r='.$result,false);
+//        }
+//    }
+    }
 
 $controllerObject = new AdminFaqController();

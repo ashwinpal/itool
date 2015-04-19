@@ -154,8 +154,7 @@ class invoicesFunctionality
         
         return $row;
         
-        
-    }
+        }
 
 
     public function DeleteValues($id){

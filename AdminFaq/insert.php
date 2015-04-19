@@ -18,7 +18,9 @@ ob_start();
            {
             $controllerObject->formValues();
             $controllerObject->insert(); 
-            }
+            
+            
+           }
 ?>
 
 <html>
@@ -27,24 +29,17 @@ ob_start();
         <div id="product_heading">
              <h1>Support FAQ</h1>
         </div>
-        <hr/>     
-        <div id="product_nav">
-            <li>
-                <ul> 
-                    <a class="page-links" href="insert.php"  >Insert FAQs</a> &nbsp;
-                    <a class="page-links" href="update.php"  >Update FAQs</a> &nbsp;
-                    <a class="page-links" href="delete.php"  >Delete FAQs</a> &nbsp;
-                </ul>
-            </li>
-        </div>
+        <hr/>    
         
         <div id="add_product">
             <h3>Add Frequently Asked Questions</h3>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-                <label>Id:</label>  <input type="text" name="Id" id="Id" /><br/>
-                <label>Question:</label>  <input type="text" name="Question" id="Question" /><br/>
-                <label>Answer:</label> <input type="text" name="Answer" id="Answer" /> <br/>
-                 <input type="submit" name="submit" id="submit" value="Add" />
+<!--                <label>Question:</label>  <input type="text" name="Question" id="Question" /><br/>
+                <label>Answer:</label> <input type="text" name="Answer" id="Answer" /> <br/>-->
+                
+                <label>Question:</label> <textarea id="Question" name="Question"></textarea><br/>
+                <label>Answer:</label> <textarea  name="Answer" id="Answer"></textarea> <br/>
+                 <input type="submit" name="submit" id="submit" value="Submit" />
             </form>
         </div>
         
@@ -53,7 +48,9 @@ ob_start();
 </html>
 
  <?php
+            
         
+ 
             if($_SERVER['QUERY_STRING'] !==""){
             
             echo '<div id = "result">';
