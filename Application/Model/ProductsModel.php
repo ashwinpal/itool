@@ -93,21 +93,21 @@ class ProductFunctionalty{
     public function DisplayProduct(){
         
         $query="select product_id, product_name, product_description, category_id, "
-                . "buying_price, image from product_list";
+                . "buying_price, image, rating from product_list";
         
         $statement = $this->dbcon->query($query);
         
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         
          echo '<table border="1"> <th>Product Id</th><th>Product Name</th><th>Product Description'
-        . '</th><th>Category Id</th><th>Price</th><th>Image</th><th>Update</th><th>Delete</th>';
+        . '</th><th>Category Id</th><th>Price</th><th>Image</th><th>Rating</th><th>Update</th><th>Delete</th>';
          
         foreach($statement as $q){
            echo '<tr>';
            echo '<td>'. $q['product_id'].'</td><td>'. $q['product_name'].'</td>'
                . '<td>'.$q['product_description'].'</td>'
                . '<td>'.$q['category_id'].'</td>'
-               . '<td>'.$q['buying_price'].'</td><td>'.$q['image'].'</td>'
+               . '<td>'.$q['buying_price'].'</td><td>'.$q['image'].'</td><td>'.$q['rating'].'</td>'
                . '<td><a href=update.php?id='.$q['product_id'].'>Update</a></td>'
                . '<td><a href=delete.php?id='.$q['product_id'].'>Delete</a></td>';
            echo '</tr>';  
@@ -191,4 +191,25 @@ class ProductFunctionalty{
             return 0;
         }      
     }
+    
+//    public function RateProduct(){
+//        
+//        $query="select product_id, product_name, category_id, rating from product_list";
+//        
+//        $statement = $this->dbcon->query($query);
+//        
+//        $statement->setFetchMode(PDO::FETCH_ASSOC);
+//        
+//         echo '<table border="1"> <th>Product Id</th><th>Product Name</th>'
+//        . '<th>Category Id</th><th>Rate</th>';
+//         
+//        foreach($statement as $q){
+//           echo '<tr>';
+//           echo '<td>'. $q['product_id'].'</td><td>'. $q['product_name'].'</td>'
+//               . '<td>'.$q['category_id'].'</td>'
+//               . '<td>'.$q['rating'].'</td>';
+//           echo '</tr>';  
+//         }
+//        echo '</table>';
+//    }
 }

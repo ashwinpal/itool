@@ -33,6 +33,11 @@ class AdminProductController implements iAction{
         $result=$modelAction->DisplayProduct($this->model);        
     }
     
+//     public function rating(){
+//        $modelAction=new ProductFunctionalty();
+//        $result=$modelAction->RateProduct($this->model);        
+//    }
+    
     public function insert(){       
         $modelAction= new ProductFunctionalty();
         $result=$modelAction->InsertProduct($this->model);
