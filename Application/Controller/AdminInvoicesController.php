@@ -44,7 +44,7 @@ class AdminInvoicesController implements iAction{
         
             $result=$modelAction->insertValues($this->model);
             
-            GeneralClass::redirect('/project/itool/invoicesAdmin/Insert.php?'.$result, false);
+            GeneralClass::redirect('/project/itool/Invoices/index.php?'.$result, false);
     }
        
       public function delete(){

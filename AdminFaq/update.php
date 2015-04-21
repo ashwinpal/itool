@@ -10,7 +10,7 @@ ob_start();
 ?>   
 
         <?php
-            LayoutClass::includeHomeNav();
+            LayoutClass::includeAdminNav();
         ?>
 
 <?php

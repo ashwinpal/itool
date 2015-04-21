@@ -10,7 +10,7 @@ ob_start();
 ?>   
 
         <?php
-            LayoutClass::includeHomeNav();
+            LayoutClass::includeAdminNav();
         ?>
 
 <?php
@@ -46,13 +46,6 @@ ob_start();
         </div>
         <hr/>
         
-         <div id="product_nav">
-            <li>
-                <ul> 
-                    <a class="page-links" href="insert.php"  >Insert invoices</a> 
-                </ul>
-            </li>
-        </div>
 <div id="update_invoices">
             <h3>Update invoices</h3>
             <form action="updateInvoices.php?id=<?=$id?>" method="post">

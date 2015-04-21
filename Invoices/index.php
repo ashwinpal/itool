@@ -55,8 +55,7 @@ ob_start();
                 <input type="submit" name="submit" id="submit" value="submit" />
             </form>
         </div>
-        
-        <a class="page-links" href="index.php"  ><< Back to List</a>
+       
     </body>
 </html>
 

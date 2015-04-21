@@ -11,7 +11,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
 ?>
 
         <?php
-            LayoutClass::includeHomeNav();
+            LayoutClass::includeAdminNav();
         ?>
 <?php 
 if (isset($_GET['r']))
@@ -29,14 +29,6 @@ else
              <h1>Invoices & Bills</h1>
         </div>
         <hr/>
-        
-         <div id="product_nav">
-            <li>
-                <ul> 
-                    <a class="page-links" href="insert.php"  >Insert invoices</a> 
-                </ul>
-            </li>
-        </div>
         
         <h3>List of Invoices & Bills</h3>
         <br/>

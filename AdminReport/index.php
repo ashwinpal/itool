@@ -5,18 +5,18 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/Include
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/ValidationLibrary.php';
 
-include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/AdminFaqController.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/ReportController.php';
 
     LayoutClass::includeHeader();
 ?>
 
         <?php
-            LayoutClass::includeAdminNav();
+            LayoutClass::includeHomeNav();
         ?>
 <?php 
 if (isset($_GET['r']))
 {
-    $msg= "FAQs successfully added";
+    $msg= "Reports successfully added";
 }
 else
     $msg="";
@@ -26,19 +26,11 @@ else
     <head></head>
     <body>
         <div id="product_heading">
-             <h1>Support FAQ</h1>
+             <h1>Report Generation</h1>
         </div>
         <hr/>
         
-         <div id="product_nav">
-            <li>
-                <ul> 
-                    <a class="page-links" href="insert.php"  >Insert FAQs</a> &nbsp;
-                </ul>
-            </li>
-        </div>
-        
-        <h3>FAQ List</h3>
+        <h3>Reports</h3>
         <br/>
         
         <?php echo $msg;?>
