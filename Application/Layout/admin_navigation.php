@@ -16,7 +16,7 @@
                             </li>
                         </ul>
                     </li>  
-                    <li><a href="<?php echo '../Application/Controller/AdminController.php?action=Index';?>"><i class="fa fa-home fa-lg"></i> Purchase List</a></li>   
+                    <li><a href="<?php echo '../Application/Controller/AdminImportController.php?action=Index';?>"><i class="fa fa-home fa-lg"></i> Purchase List</a></li>   
                     <li><a href="<?php echo '../Application/Controller/AdminSearchController.php?action=Index';?>"><i class="fa fa-home fa-lg"></i> Track Purchase</a></li>  
                     <li><a href="<?php echo '../Application/Controller/AdminSearchController.php?action=Index';?>"><i class="fa fa-home fa-lg"></i> Invoices And Bills</a></li> 
                     <li><a href="<?php echo '../Application/Controller/AdminSearchController.php?action=Index';?>"><i class="fa fa-home fa-lg"></i> Stock List</a></li>
