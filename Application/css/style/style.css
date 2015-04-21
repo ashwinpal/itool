@@ -272,3 +272,22 @@ ul.alert-dropdown {
 .ui-widget-content {
 z-index: 1050 !important;
 }
+
+
+.buttonstyle {
+    border: 0px;
+    color: #fff;
+    background-color: #335f7d;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-left:10px;
+    font-family: sans-serif;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.buttonstyle:hover {
+    color: #fff;
+    text-decoration: none;
+}

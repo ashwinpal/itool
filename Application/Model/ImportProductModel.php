@@ -1,5 +1,5 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/DBAccessClass.php';
+include_once  $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/DBAccessClass.php';
 
 class importProduct
 {
@@ -106,7 +106,14 @@ class ImportFunctionality{
             return 0;
         }    
     }
-    
+    public function DisplayProd($cid)
+    {
+        $query="select product_name from product_list where category_id=".$cid;
+        $statement = $this->dbcon->query($query);
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        return($statement);
+    }
+
     public function DisplayOrders(){
         
 

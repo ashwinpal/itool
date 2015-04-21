@@ -36,18 +36,19 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         </div>
         <hr/>
         
+        
                <br/>
           <div id="recieved_orders">
             <form action="" method="post">
                 <label> Order Number: <?php echo $_GET['id']; ?></label><br/>
                 <label> Quantity: </label><input type="text" id="qty" name="qty" value="<?php echo $_GET['qty'];?>"/><br/>
-                <label>Received Date:</label><input name='received_date' type='text' value=''  /><br/>
-                <label>Expiry Date:</label><input name='expiry_date' type='text' value='' />
+                <label>Received Date:</label><input name='received_date' type='date' value=''  /><br/>
+                <label>Expiry Date:</label><input name='expiry_date' type='date' value='' />
                 <input type="submit" name="submit" id="submit" value="Ok" />  
 
                </form> 
         </div>
-        
+               <div> <a class="page_links" href="index.php">Back to home</a> </div>
     </body>
 </html>
 

@@ -1,6 +1,6 @@
 <?php
 
-include $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/DBAccessClass.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/DBAccessClass.php';
 
 /* 
  * To change this license header, choose License Headers in Project Properties.
@@ -62,6 +62,17 @@ class CategoryFunctionality{
         }    
     }
     
+    public function DisplayCat()
+    {
+      $query="select category_id, category_name from category";
+        
+        $statement = $this->dbcon->query($query);
+        
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        return($statement);
+          
+    }
+
     public function DisplayCategory(){
         
         $query="select category_id, category_name from category";
@@ -85,6 +96,8 @@ class CategoryFunctionality{
     public function DeleteCategory($id){
         
         $query="Delete from category where category_id = :category_id";
+        
+        
         
         $statement = $this->dbcon->prepare($query);
 

@@ -11,7 +11,7 @@ class AdminImportController implements iAction{
         
         switch ($view){
             
-            case 'Index' :  GeneralClass::redirect('../../AdminImport', false);
+            case 'Index' :  GeneralClass::redirect('/project/itool/AdminImport', false);
                 break;
             default : die('Error in action call ->'.$view);
                 
@@ -52,7 +52,7 @@ class AdminImportController implements iAction{
     }
 }
 
-echo '<script>alert("entered controller")</script>';
+//echo '<script>alert("entered controller")</script>';
 
 $controllerObj = new AdminImportController();
 

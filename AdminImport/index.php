@@ -31,7 +31,7 @@ else
         <hr/>
         
         <div id="product_nav">
-            <input type="Button" id="btn_place" name="btn_place" value="Place an Order"/>
+            <a class="buttonstyle" href="place_order.php"  >Place an order</a>
         </div>
         <br/>
         <?php echo $msg;?>
