@@ -94,6 +94,20 @@ class faqFunctionality
             echo '</table>';
     }
     
+    
+      public function DisplayPublic(){
+        
+        $query="select id, questions, answers from faq_table";
+        
+        $statement = $this->dbcon->query($query);
+        
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+         
+        return $statement;
+        
+    }
+    
+      
        public function DeleteValues($id){
         
         $sql="Delete from faq_table where id = :id ";

@@ -56,8 +56,23 @@ class reportFunctionality
                 echo '</tr>';                
             }
             echo '</table>';
+        }
+    
+    public function getReport()
+    {
+    
+      // $q = intval($_GET['q']);
+        
+        $query="SELECT * FROM product_list WHERE id = product_id";
+        
+        $statement = $this->dbcon->query($query);
+        
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        
+        return $statement;
     }
     
+}
+
     
-    
-    }     
+ 

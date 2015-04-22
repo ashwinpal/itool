@@ -15,7 +15,7 @@ $r = $objModel ->DeleteValues($id);
 
 if($r){
     
-    GeneralClass::redirect('../invoicesAdmin/', false);
+    GeneralClass::redirect('../AdminInvoices/', false);
 
     
 }

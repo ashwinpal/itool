@@ -53,7 +53,7 @@ class AdminInvoicesController implements iAction{
         
             $result=$modelAction->DeleteValues($this->model);
             
-            GeneralClass::redirect('/project/itool/invoicesAdmin/deleteInvoices.php?'.$result, false);
+            GeneralClass::redirect('/project/itool/AdminInvoices/deleteInvoices.php?'.$result, false);
     }    
     
     
@@ -71,7 +71,7 @@ class AdminInvoicesController implements iAction{
                
 
         if($result){
-            GeneralClass::redirect('/project/itool/invoicesAdmin/Index.php?r='.$result,false);
+            GeneralClass::redirect('/project/itool/AdminInvoices/Index.php?r='.$result,false);
         }
     }
     

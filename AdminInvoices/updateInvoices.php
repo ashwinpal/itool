@@ -34,7 +34,7 @@ ob_start();
         
         $model->UpdateValues($id,$_POST['name'],$_POST['quantity'],$_POST['date'],$_POST['price']);
         
-        GeneralClass::redirect('/project/itool/invoicesAdmin', false);
+        GeneralClass::redirect('/project/itool/AdminInvoices', false);
     }
 ?>
 

@@ -32,6 +32,6 @@ class ReportController implements iAction
         $result=$modelAction->DisplayReport($this->model);
             
     }
- 
+   
 }
 $controllerObject = new ReportController();
