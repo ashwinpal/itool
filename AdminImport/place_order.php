@@ -11,28 +11,35 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/AddCate
 ?>
 
         <?php
-            LayoutClass::includeHomeNav();
+            LayoutClass::includeAdminNav();
         ?>
+
+
 
 <?php
 $modelAction=new CategoryFunctionality();
  $result=$modelAction->DisplayCat();
- 
  ?>   
 <?php
 if (isset($_POST['generate']))
 {
-    $cat_num=$_POST['selectCat'];
+       $cat_num=$_POST['selectCat'];
     $modelActionImport=new ImportFunctionality();
     $result_prod=$modelActionImport->DisplayProd($cat_num);
    
-    foreach ($result_prod as $prod)
-    {
-        echo $prod['product_name'];
-    }
+   //var_dump($result_prod);
     //echo $product_list;
     
 }
+if(onsubmitCheck('submit'))
+           {
+    //var_dump($controllerObj->formValues());
+            $controllerObj->formValues();
+            $controllerObj->insert(); 
+            
+            
+           }
+ 
 ?>
 
 <html>
@@ -52,21 +59,47 @@ if (isset($_POST['generate']))
                    <option value="0">Select Category</option>
                    <?php foreach ($result as $cat) 
                      { 
-                       echo "<option value=".$cat['category_id'].">".$cat['category_name']."</option>";
+                       if ($_POST['selectCat']==$cat['category_id'])
+                        {
+                           
+                            echo "<option selected value=".$cat['category_id'].">".$cat['category_name']."</option>";
+                        }
+                       else {
+                        echo "<option value=".$cat['category_id'].">".$cat['category_name']."</option>";
+                           
+                       }
                      }
                    ?> 
                </select>
-               <input type="submit" name="generate" value="Generate Product List"/>
+               <input type="submit" name="generate" value="Generate Product List" id="generate"/>
                <br/>
+            </form>
+              <form>
               <div id="showcontent">             
                <label> Product: </label>
                <select name="product" id="product">
-                   <option> <?php foreach ($result_prod as $prod) 
+                    <?php 
+                    
+                    $flag=0;
+                    
+                    if(!empty($result_prod))
+                    {
+                     
+                    foreach ($result_prod as $prod) 
                      { 
                        echo "<option value=".$prod['product_id'].">".$prod['product_name']."</option>";
+                     
+                       $flag=1;
                      }
+                     //echo "<option value='-1'>No product available</option>";
+                    }
+                    
+                    if($flag==0)
+                    {
+                        echo "<option value='-1'>No product available</option>";
+                    }
                    ?> 
-                </option>
+                
                </select>
                <br/>
                 <label> Quantity: </label><input type="text" id="qty" name="qty"/><br/>
@@ -74,6 +107,7 @@ if (isset($_POST['generate']))
               </div>
                       
             </form> 
+              
         </div>
         
     </body>

@@ -13,15 +13,20 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
 ?>
 
         <?php
-            LayoutClass::includeHomeNav();
+            LayoutClass::includeAdminNav();
         ?>
 
  <?php
+ $err="";
     if(onsubmitCheck('submit'))
         {
+        if($_GET['qty']>=$_POST['rqty'])
+        {
+        $controllerObj->update($_POST['rqty'],$_GET['qty'],$_POST['received_date'],$_POST['expiry_date'],$_GET['id']);
+        }
+        else
+           $err="Received quantity should not more than quantity ordered.<br/>";
         
-        $controllerObj->update($_POST['qty'],$_POST['received_date'],$_POST['expiry_date'],$_GET['id']);
-       // $controllerObj->display();
     }
 
 ?>
@@ -36,14 +41,14 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         </div>
         <hr/>
         
-        
-               <br/>
           <div id="recieved_orders">
+              
+              <?php echo $err."</br>"; ?>
             <form action="" method="post">
                 <label> Order Number: <?php echo $_GET['id']; ?></label><br/>
-                <label> Quantity: </label><input type="text" id="qty" name="qty" value="<?php echo $_GET['qty'];?>"/><br/>
-                <label>Received Date:</label><input name='received_date' type='date' value=''  /><br/>
-                <label>Expiry Date:</label><input name='expiry_date' type='date' value='' />
+                <label> Received Quantity: </label><input type="text" id="rqty" name="rqty" value="<?php echo $_GET['qty'];?>"/><br/>
+                <label>Received Date:</label><input name='received_date' type='date'   /><br/>
+                <label>Expiry Date:</label><input name='expiry_date' type='date'  />
                 <input type="submit" name="submit" id="submit" value="Ok" />  
 
                </form> 

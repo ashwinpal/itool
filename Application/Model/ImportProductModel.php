@@ -48,6 +48,14 @@ class importProduct
     {
         $this->productId = $value;
     }
+    public function getRecQuantity()
+    {
+        return $this->quantity;
+    }
+    public function setRecQuantity($value)
+    {
+        $this->quantity = $value;
+    }
     public function getQuantity()
     {
         return $this->quantity;
@@ -83,19 +91,21 @@ class ImportFunctionality{
         $this->dbcon = $obj->dbConnect();
     }
     
-    public function InsertOrder($newCatg){
+     public function  DeleteOrder($id){
         
-        $query="insert into category (category_name) "
-                . "values (:category_name)";
+        $sql="Delete from import_product where order_number = :id ";
         
-        $statement = $this->dbcon->prepare($query);
+        $statement = $this->dbcon->prepare($sql);
 
-        $statement->bindValue(':category_name', $newCatg->getCategory_Name());
-               
-        $success = $statement->execute();
-                 
-        $statement->closeCursor(); 
+        $statement->bindValue(':id', $id);
         
+        $success = $statement->execute();
+
+        //$row_count=$statement->rowCount();
+        $statement->closeCursor();
+
+        //$jobID = $this->dbcon->lastInsertId();
+
         if($success)
         {
             return 1;
@@ -103,8 +113,38 @@ class ImportFunctionality{
         }
         else
         {
+            
             return 0;
-        }    
+        } 
+    }
+
+    public function InsertOrder($model)
+                {
+        
+       $sql = "insert into import_product (product_id,quantity) values (:prod_id,:qty)";
+        
+        $statement = $this->dbcon->prepare($sql);
+        
+        var_dump($model);
+        
+        $statement->bindValue(':prod_id', $model->getproductId());
+        $statement->bindValue(':qty', $model->getQuantity());
+        
+        $success = $statement->execute();
+        
+       // var_dump($success);
+        
+        $statement->closeCursor();
+                
+         if($success)
+        {
+            return 1;
+
+        }
+        else
+        {
+            return 0;
+        } 
     }
     public function DisplayProd($cid)
     {
@@ -125,12 +165,14 @@ class ImportFunctionality{
           echo '<table border="1"> <th>Order Number</th><th>Category ID</th><th>Product Name</th><th>Quantity</th><th>Action</th>';
               foreach($statement as $q)
                 {
-                                       echo '<tr>';
+                  if($q['quantity']!=0)
+                  {
+                echo '<tr>';
                 echo '<td>'. $q['order_number'].'</td><td>'. $q['category_id'].'</td><td>'.$q['product_name'].'</td><td>'. $q['quantity'].'</td>'
-                        . '<td><a href=recieved_orders.php?id='.$q['order_number'].'&qty='.$q['quantity'].'>Received</a> &nbsp;<a href=cancel_order.php?id='.$q['order_number'].'>Cancel Order</a></td>';
+                        . '<td><a href=recieved_orders.php?id='.$q['order_number'].'&qty='.$q['quantity'].'>Received</a> &nbsp;/<a href=confirm.php?id='.$q['order_number'].'>Cancel Order</a></td>';
                 echo '</tr>';   
                         
-                
+                  }
              
             }
             echo '</table>';
@@ -138,12 +180,14 @@ class ImportFunctionality{
     
     public function recieved_orders($Cname){
      
-        $query =("update import_product set quantity=:quantity, recieved_date=:recieved_date,expiry_date=:expiry_date "."where order_number=:order_number");
+        $query =("update import_product set quantity=:quantity,recieved_qty=:recquantity, recieved_date=:recieved_date,expiry_date=:expiry_date "."where order_number=:order_number");
         
         $statement = $this->dbcon->prepare($query);     
-        
+        var_dump($Cname);
         $statement->bindValue(":order_number", $Cname->getorderNumber());
+        $statement->bindValue(":recquantity", $Cname->getRecQuantity());
         $statement->bindValue(":quantity", $Cname->getQuantity());
+        //$statement->bindValue(":quantity");
         $statement->bindValue(":recieved_date", $Cname->getreceivedDate());
         $statement->bindValue(":expiry_date", $Cname->getexpiryDate());
 

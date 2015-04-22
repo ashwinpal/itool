@@ -25,8 +25,9 @@ class AdminImportController implements iAction{
      
     public function insert(){
         $modelAction=new ImportFunctionality();
-        $result=$modelAction->PlaceOrder($this->model);
-        GeneralClass::redirect('/project/itool/AdminCategory/Index.php?'.$result, false);
+        var_dump($this->model);
+        $result=$modelAction->InsertOrder($this->model);
+        GeneralClass::redirect('/project/itool/AdminImport/Index.php?'.$result, false);
     }
     
     public function display(){
@@ -34,10 +35,13 @@ class AdminImportController implements iAction{
         $result=$modelAction->DisplayOrders($this->model);
     }
     
-    public function update($qty,$rd,$ed,$on){
+    public function update($rqty,$qty,$rd,$ed,$on){
         
         $this->model = new importProduct();
-        $this->model->setQuantity($qty);
+        $nqty=$qty-$rqty;
+        //echo $qty;
+         $this->model->setRecQuantity($rqty);
+        $this->model->setQuantity($nqty);
         $this->model->setreceivedDate($rd);
         $this->model->setexpiryDate($ed);
         $this->model->setorderNumber($on);
