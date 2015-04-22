@@ -24,6 +24,9 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/Message
         <link href="../Application/css/bootstrap/bootstrap.min.css" rel="stylesheet">
         <link href="../Application/css/style/style.css" rel="stylesheet">
         
+    <!-- jqPlots -->    
+    <link rel="stylesheet" type="text/css" href="../Application/js/src/jquery.jqplot.css">
+        
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <!--  -->
     <link rel="stylesheet" href="../Application/js/jquery_ui/jquery-ui.min.css">
