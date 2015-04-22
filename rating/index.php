@@ -21,7 +21,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ra
              <h1>Rating a Product</h1>
         </div>
         <hr/>
-<div role="tabpanel">
+        <div id="tab" role="tabpanel">
     
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#home" class="page-links" aria-controls="home" role="tab" data-toggle="tab">Rate A Product</a></li>
