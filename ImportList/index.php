@@ -11,16 +11,9 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
 ?>
 
         <?php
-            LayoutClass::includeAdminNav();
+            LayoutClass::includeHomeNav();
         ?>
-<?php 
-if (isset($_GET['r']))
-{
-    $msg= "Order is successfully recieved";
-}
-else
-    $msg="";
-?>
+
 
 <html>
     <head></head>
@@ -30,15 +23,11 @@ else
         </div>
         <hr/>
         
-        <div id="product_nav">
-            <a class="buttonstyle" href="insert.php"  >Place an order</a>
-        </div>
-        <br/>
-        <?php echo $msg;?>
+  
           <div id="view_orders">
             <form action="" method="post">
                <?php 
-                $controllerObj->display();  
+                $controllerObj->displayPublic();  
                 
                ?>                      
             </form> 

@@ -125,7 +125,7 @@ class ImportFunctionality{
         
         $statement = $this->dbcon->prepare($sql);
         
-        var_dump($model);
+        //var_dump($model);
         
         $statement->bindValue(':prod_id', $model->getproductId());
         $statement->bindValue(':qty', $model->getQuantity());
@@ -146,6 +146,31 @@ class ImportFunctionality{
             return 0;
         } 
     }
+    public function DisplayOrderList()
+    {
+        $query="select order_number from import_product";
+        $statement = $this->dbcon->query($query);
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        return($statement);
+    }
+          
+
+          public function DisplayTrack()
+    {
+        $query="select order_number, product_name,quantity,recieved_date from import_product as ip LEFT JOIN product_list as pl ON ip.product_id=pl.product_id ";
+        $statement = $this->dbcon->query($query);
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        return($statement);
+    }
+    
+     public function DisplayOrderTrack($cid)
+    {
+         $query="select order_number, product_name,quantity,recieved_date from import_product as ip LEFT JOIN product_list as pl ON ip.product_id=pl.product_id where ip.order_number=".$cid;
+        $statement = $this->dbcon->query($query);
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        //var_dump($statement);
+         return($statement);
+    }
     public function DisplayProd($cid)
     {
         $query="select product_name from product_list where category_id=".$cid;
@@ -153,6 +178,31 @@ class ImportFunctionality{
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         return($statement);
     }
+    
+    public function DisplayPublic(){
+        
+
+        $query="select order_number, product_name,category_id,quantity from import_product as ip LEFT JOIN product_list as pl ON ip.product_id=pl.product_id";
+        $statement = $this->dbcon->query($query);
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        
+            
+          echo '<table border="1"> <th>Order Number</th><th>Category ID</th><th>Product Name</th><th>Quantity</th><th>Action</th>';
+              foreach($statement as $q)
+                {
+                  if($q['quantity']!=0)
+                  {
+                echo '<tr>';
+                echo '<td>'. $q['order_number'].'</td><td>'. $q['category_id'].'</td><td>'.$q['product_name'].'</td><td>'. $q['quantity'].'</td>'
+                        ;
+                echo '</tr>';   
+                        
+                  }
+             
+            }
+            echo '</table>';
+    }
+    
 
     public function DisplayOrders(){
         
@@ -183,7 +233,7 @@ class ImportFunctionality{
         $query =("update import_product set quantity=:quantity,recieved_qty=:recquantity, recieved_date=:recieved_date,expiry_date=:expiry_date "."where order_number=:order_number");
         
         $statement = $this->dbcon->prepare($query);     
-        var_dump($Cname);
+        //var_dump($Cname);
         $statement->bindValue(":order_number", $Cname->getorderNumber());
         $statement->bindValue(":recquantity", $Cname->getRecQuantity());
         $statement->bindValue(":quantity", $Cname->getQuantity());

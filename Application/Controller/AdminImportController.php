@@ -25,16 +25,36 @@ class AdminImportController implements iAction{
      
     public function insert(){
         $modelAction=new ImportFunctionality();
-        var_dump($this->model);
+        //var_dump($this->model);
         $result=$modelAction->InsertOrder($this->model);
         GeneralClass::redirect('/project/itool/AdminImport/Index.php?'.$result, false);
     }
-    
+    public function displayorderlist()
+    {
+      $modelAction=new ImportFunctionality();
+        $result=$modelAction->DisplayOrderList($this->model);
+        return $result;
+  
+    }
+
+    public function displayTrack($id) 
+    {
+       
+        $this->model = new importProduct();
+        $modelAction=new ImportFunctionality();
+         
+        $result=$modelAction->DisplayOrderTrack($id);
+        return $result;
+    }
     public function display(){
         $modelAction=new ImportFunctionality();
         $result=$modelAction->DisplayOrders($this->model);
     }
-    
+    public function displayPublic(){
+        $modelAction=new ImportFunctionality();
+        $result=$modelAction->DisplayPublic($this->model);
+    }
+
     public function update($rqty,$qty,$rd,$ed,$on){
         
         $this->model = new importProduct();
