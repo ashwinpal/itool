@@ -26,12 +26,10 @@ class AdminController implements iAction{
 }
 
 
-echo '<script>alert("entered admin controller")</script>';
-
 if(isset($_GET['action']))
     {
     $view = $_GET['action'];
 
-$adminObj = new AdminSearchController();
+$adminObj = new AdminController();
 $adminObj->Action($view);
     }
