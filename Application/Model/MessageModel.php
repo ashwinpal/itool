@@ -165,7 +165,7 @@ class MessageFunctionality{
         
             $msg = new Notification_SystemModel();
             
-            $sql="select alert_description from notification_system where alert_id = :id";
+            $sql="select user_id,alert_description from notification_system where alert_id = :id";
 
             $statement = $this->dbcon->prepare($sql);
 
@@ -178,6 +178,7 @@ class MessageFunctionality{
                        
             foreach ($statement as $v) {
                 
+                $msg->setuserId($v['user_id']);
                 $msg->setalertId($val);
                 $msg->setalertDescription($v['alert_description']);
                 
@@ -189,6 +190,33 @@ class MessageFunctionality{
         
         return $subjectList;
         
+    }
+    
+    
+    public function DeleteMsg($msgid){
+        
+        $sql="Delete from notify_person where alert_id = :id";
+        
+        $statement = $this->dbcon->prepare($sql);
+
+        $statement->bindValue(':id', $msgid);
+        
+        $success = $statement->execute();
+
+        //$row_count=$statement->rowCount();
+        $statement->closeCursor();
+
+        //$jobID = $this->dbcon->lastInsertId();
+
+        if($success)
+        {
+            return 1;
+
+        }
+        else
+        {
+            return 0;
+        }        
     }
     
 }

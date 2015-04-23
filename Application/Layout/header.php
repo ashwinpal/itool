@@ -193,7 +193,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/Message
                                 
                                    //var_dump($msg);    
                                    
-                                echo '<li><a href="../Messages/index.php?id='.$msg->getalertId().'">'.$msg->getalertDescription().'</a></li>';
+                                echo '<li><a href="../Messages/index.php?id='.$msg->getalertId().'">'.'<span class="btn btn-primary">'.$msg->getuserId().'</span>&nbsp;'.$msg->getalertDescription().'</a></li>';
                             }
                         }
                         else{

@@ -18,12 +18,30 @@ LayoutClass::includeHeader();
     
     <?php
         
-        if(onsubmitCheck('submit'))
-            // validation 1 , checking if submit is clicked
-            {
+        if(isset($_GET['id']))
+        {
+          $objMsg = new MessageFunctionality();
+          $result=$objMsg->DeleteMsg($_GET['id']);
+          
+          
+          if($result > 0){
             
+            echo'<div class="alert alert-success alert-dismissible text-center" role="alert">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <strong >Success!!!</strong> Message Deleted.
+                 </div>';
             
+        }
+        else {
+
+            echo'<div class="alert alert-danger alert-dismissible text-center" role="alert">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <strong>Sorry !!!</strong> Message was not deleted! 
+                 </div>';
             
+        }
+          
+          
         }
         
     ?>
@@ -47,12 +65,15 @@ LayoutClass::includeHeader();
                                 
                                    //var_dump($msg);    
                                    
-                                echo '<a href="../Messages/index.php?id='.$msg->getalertId().'">'.$msg->getalertDescription().'</a><br><br>';
+                                echo '<span class="btn btn-primary"><i class="fa fa-fw fa-user"></i>'.$msg->getuserId().'</span>&nbsp;'.'<a class="btn btn-primary" href="../Messages/index.php?id='.$msg->getalertId().'">Subject : '.$msg->getalertDescription().'</a>&nbsp;&nbsp;<a class="btn btn-danger" href="allMessages.php?id='.$msg->getalertId().'"><i class="fa fa-trash-o"></i>&nbsp;Delete</a><br><br>';
                             }
                         }
                         else{
                             
-                            echo 'No Messages !!!';
+                            echo'<div class="alert alert-danger alert-dismissible text-center" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong>You have no more messages !!!</strong> 
+                                </div>';
                             
                         }
         ?>
