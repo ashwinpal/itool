@@ -49,7 +49,7 @@ ob_start();
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                 <label>Product Id:</label>  <input class="form-control" type="text" name="name" id="name" /><br/>
                 <label>Product Quantity:</label>  <input class="form-control" type="text" name="quantity" id="quantity" /><br/>
-                <label>Selling Date:</label> <input class="form-control" type="text" name="date" id="date" /> <br/>
+                <label>Selling Date:</label> <input class="form-control" type="text" name="date" /> <br/>
                 <label>Selling Price</label> <input class="form-control" type="text" name="price" id="price" /><br/>
                 <label>User Id</label> <input class="form-control" type="text" name="userid" id="userid" /><br/>
                 <input class="buttonstyle" type="submit" name="submit" id="submit" value="submit" />

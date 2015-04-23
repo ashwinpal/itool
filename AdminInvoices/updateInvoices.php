@@ -51,7 +51,7 @@ ob_start();
             <form action="updateInvoices.php?id=<?=$id?>" method="post">
                 <label>Product Id:</label>  <input class="form-control" type="text" name="name" id="name" value=<?=$details['product_id']?> /><br/>
                 <label>Product Quantity:</label>  <input class="form-control" type="text" name="quantity" id="quantity" value=<?=$details['quantity']?> /><br/>
-                <label>Selling Date:</label> <input class="form-control" type="text" name="date" id="date" value=<?=$details['invoice_date']?> /> <br/>
+                <label>Selling Date:</label> <input class="form-control" type="text" name="date"  value=<?=$details['invoice_date']?> /> <br/>
                 <label>Selling Price</label> <input class="form-control" type="text" name="price" id="price" value=<?=$details['selling_price']?> /><br/>
                 <input class="buttonstyle" type="submit" name="submit" value="Update invoices" />
                 
