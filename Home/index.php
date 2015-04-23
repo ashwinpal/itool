@@ -6,6 +6,8 @@ include '../Application/Class/IncludeClass.php';
 LayoutClass::includeHeader();
 //include_once '../Application/Layout/header.php';
 
+GeneralClass::checkUser($_SESSION['role']);
+
 ?>
 
     

@@ -1,5 +1,10 @@
 <?php
 
+    LayoutClass::includeHeader();
+    
+
+GeneralClass::checkAdmin($_SESSION['role']);
+
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/GeneralClass.php';
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/AddCategoryModel.php';
 

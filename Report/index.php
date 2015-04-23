@@ -10,6 +10,8 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Re
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/ReportModel.php';
 
     LayoutClass::includeHeader();
+    
+    GeneralClass::checkUser($_SESSION['role']);
 ?>  
 
 <?php

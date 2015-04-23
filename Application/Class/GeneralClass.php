@@ -16,6 +16,20 @@ class GeneralClass {
        die();
     }
     
+    public static function checkAdmin($in){
+        if($in!=2||$in!='2')
+        {
+        self::redirect("../");
+        }
+    }
+    
+    public static  function checkUser($in){
+        if($in!=1||$in!='1')
+        {
+        self::redirect("../");
+        }
+    }
+    
 }
 
 

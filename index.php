@@ -18,10 +18,16 @@
 
 
 <?php
-if(isset($_POST['login']))
-{
+
    session_start();
    
+    $_SESSION["uid"] = NULL;
+    $_SESSION["role"]=NULL;
+
+if(isset($_POST['login']))
+{
+
+      
    include_once 'Application/Class/GeneralClass.php';
    
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/IncludeClass.php';

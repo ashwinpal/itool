@@ -7,6 +7,8 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/UserMod
 
 
     LayoutClass::includeHeader();
+    
+    GeneralClass::checkAdmin($_SESSION['role']);
 ?>
 
         <?php

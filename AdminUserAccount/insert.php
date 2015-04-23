@@ -8,6 +8,7 @@ ob_start();
 
     //include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/AdminFaqController.php';
     LayoutClass::includeHeader();
+    GeneralClass::checkAdmin($_SESSION['role']);
 ?>   
 
         <?php

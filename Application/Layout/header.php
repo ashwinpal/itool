@@ -218,7 +218,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/Message
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="../"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
