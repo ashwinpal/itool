@@ -12,7 +12,15 @@ LayoutClass::includeHeader();
 ?>
  
     <?php 
+    
+    var_dump($_SESSION['role']);
+    
+        if($_SESSION['role']==2||$_SESSION['role']=="2")
+        {LayoutClass::includeAdminNav();}
+        elseif($_SESSION['role']==1||$_SESSION['role']=="1")
+            {
         LayoutClass::includeHomeNav();
+        }
     ?>
     
 <?php
@@ -88,7 +96,6 @@ LayoutClass::includeHeader();
     
 
 
-                <a class="page-links" href="barcharts.php">BarCharts</a>
 
             
             

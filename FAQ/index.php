@@ -11,7 +11,12 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
 ?>  
 
 <?php
-   LayoutClass::includeHomeNav();
+if($_SESSION['role']==2||$_SESSION['role']=="2")
+        {LayoutClass::includeAdminNav();}
+        elseif($_SESSION['role']==1||$_SESSION['role']=="1")
+            {
+        LayoutClass::includeHomeNav();
+        }
 ?>
 <html>
     <head>
