@@ -41,22 +41,25 @@ ob_start();
 <html>
     <head></head>
     <body>
-        <div id="product_heading">
+        <div id="heading">
              <h1>Invoices & Bills</h1>
         </div>
         <hr/>
         
-<div id="update_invoices">
+<div id="tab">
             <h3>Update invoices</h3>
             <form action="updateInvoices.php?id=<?=$id?>" method="post">
-                <label>Product Id:</label>  <input type="text" name="name" id="name" value=<?=$details['product_id']?> /><br/>
-                <label>Product Quantity:</label>  <input type="text" name="quantity" id="quantity" value=<?=$details['quantity']?> /><br/>
-                <label>Selling Date:</label> <input type="text" name="date" id="date" value=<?=$details['invoice_date']?> /> <br/>
-                <label>Selling Price</label> <input type="text" name="price" id="price" value=<?=$details['selling_price']?> /><br/>
-                <input type="submit" name="submit" value="Update invoices" />
-            </form>    
-</div>
-        <a class="page-links" href="index.php"  ><< Back to List</a>
+                <label>Product Id:</label>  <input class="form-control" type="text" name="name" id="name" value=<?=$details['product_id']?> /><br/>
+                <label>Product Quantity:</label>  <input class="form-control" type="text" name="quantity" id="quantity" value=<?=$details['quantity']?> /><br/>
+                <label>Selling Date:</label> <input class="form-control" type="text" name="date" id="date" value=<?=$details['invoice_date']?> /> <br/>
+                <label>Selling Price</label> <input class="form-control" type="text" name="price" id="price" value=<?=$details['selling_price']?> /><br/>
+                <input class="buttonstyle" type="submit" name="submit" value="Update invoices" />
+                
+
+            <a class="buttonstyle" class="page-links"  href="index.php"  ><< Back to List</a>
+            
+            </form>
+        </div>
 </body>
 </html>
 

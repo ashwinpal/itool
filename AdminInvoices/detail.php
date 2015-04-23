@@ -25,23 +25,24 @@ else
 <html>
     <head></head>
     <body>
-        <div id="product_heading">
+        <div id="heading">
              <h1>Invoices & Bills</h1>
         </div>
         <hr/>
-        
-        <h3>List of Invoices & Bills</h3>
-        <br/>
+        <div id="tab">
+        <h3>List of Invoices & Bills</h3>      
         
         <?php echo $msg;?>
-          <div id="view_product">
+          
             <form action="" method="post">
                <?php 
                 $controllerObject->DisplayDetail();    
                ?>                                     
             </form> 
-        </div>
-      <a class="page-links" href="index.php"  ><< Back to List</a>   
+        
+      <a class="buttonstyle" class="page-links" href="index.php"  ><< Back to List</a> 
+      
+      </div>
     </body>
 </html>
 

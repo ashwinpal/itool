@@ -23,19 +23,16 @@ else
     $msg="";
 ?>
 
-<html>
-    <head></head>
-    <body>
-        <div id="product_heading">
+        <div id="heading">
              <h1>Invoices & Bills</h1>
         </div>
         <hr/>
-        
+        <div id="tab"> 
         <h3>List of Invoices & Bills</h3>
         <br/>
         
         <?php echo $msg;?>
-          <div id="view_product">
+         
             <form action="" method="post">
                <?php 
                 $controllerObject->display();    

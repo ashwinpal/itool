@@ -111,7 +111,7 @@ class invoicesFunctionality
         
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         
-         echo '<table border="1"> <th>Product Id</th><th>Quantity</th><th>Invoice Date</th><th>Selling Price</th><th>User Id</th><th>Detail</th><th>Update</th><th>Delete</th>';
+         echo '<table class="table table-striped"> <th>Product Id</th><th>Quantity</th><th>Invoice Date</th><th>Selling Price</th><th>User Id</th><th>Detail</th><th>Update</th><th>Delete</th>';
          foreach ($statement as $q){
                 
                 echo '<tr>';
@@ -131,7 +131,7 @@ class invoicesFunctionality
         
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         
-         echo '<table border="1"> <th>Product Id</th><th>Quantity</th><th>Invoice Date</th><th>Selling Price</th><th>User Id</th>';
+         echo '<table class="table table-striped" > <th>Product Id</th><th>Quantity</th><th>Invoice Date</th><th>Selling Price</th><th>User Id</th>';
          foreach ($statement as $q){
                 
                 echo '<tr>';

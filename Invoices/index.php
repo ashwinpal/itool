@@ -39,20 +39,20 @@ ob_start();
 <html>
     <head></head>
     <body>
-        <div id="product_heading">
+        <div id="heading">
              <h1>Invoices & Bills</h1>
         </div>
         <hr/>     
                
-        <div id="add_product">
+        <div id="tab">
             <h3>Add invoices information</h3>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-                <label>Product Id:</label>  <input type="text" name="name" id="name" /><br/>
-                <label>Product Quantity:</label>  <input type="text" name="quantity" id="quantity" /><br/>
-                <label>Selling Date:</label> <input type="text" name="date" id="date" /> <br/>
-                <label>Selling Price</label> <input type="text" name="price" id="price" /><br/>
-                <label>User Id</label> <input type="text" name="userid" id="userid" /><br/>
-                <input type="submit" name="submit" id="submit" value="submit" />
+                <label>Product Id:</label>  <input class="form-control" type="text" name="name" id="name" /><br/>
+                <label>Product Quantity:</label>  <input class="form-control" type="text" name="quantity" id="quantity" /><br/>
+                <label>Selling Date:</label> <input class="form-control" type="text" name="date" id="date" /> <br/>
+                <label>Selling Price</label> <input class="form-control" type="text" name="price" id="price" /><br/>
+                <label>User Id</label> <input class="form-control" type="text" name="userid" id="userid" /><br/>
+                <input class="buttonstyle" type="submit" name="submit" id="submit" value="submit" />
             </form>
         </div>
        
