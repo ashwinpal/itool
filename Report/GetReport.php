@@ -16,6 +16,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Re
 ?>
 <html>
     <body>
+        <h1>Report Generated</h1>
 <?php
 
 $modelAction = new reportFunctionality();

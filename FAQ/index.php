@@ -14,16 +14,33 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
    LayoutClass::includeHomeNav();
 ?>
 <html>
-<!--    <head>
+    <head>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
-$(document).ready(function(){
-    $("questions").click(function(){
-        $("a").toggle();
-    });
+    $(".click").click(function(){
+    $(".expand").slideToggle();
+  });
+//$(document).ready(function(){
+//$("ol ul").hide();
+//     
+//       $("ol").click(function(){
+//        $(" ul li").hide();
+//        $(this).find("ul li").toggle();
+//        
+        
+//    });
+////    
+//    $("li").mouseover(function(){
+//        $(this).css("background", "lightblue");
+//    });
+//    
+//    $("li").mouseout(function(){
+//        $(this).css("background", "white");
+//    });
+    
 });
 </script>
-    </head>-->
+    </head>
     <body>
         <h1>FREQUENTLY ASKED QUESTIONS</h1>
         <hr/>
@@ -34,8 +51,8 @@ $(document).ready(function(){
 echo "<ol>";
         foreach ($view as $q => $a)
         { ?>
-         <li> <?php   echo $a['questions'] ;?> </li>
-             <ul> <li> <?php   echo $a['answers'] ;?> </li></ul>
+    <li> <?php   echo $a['questions'] ;?> </li>
+         <ul> <li> <?php   echo $a['answers'] ;?> </li></ul>
             <?php
         }echo "</ol>";
 ?> 
