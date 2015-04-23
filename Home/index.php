@@ -1,7 +1,8 @@
 
 <?php
 
-include '../Application/Class/IncludeClass.php';
+include_once '../Application/Class/IncludeClass.php';
+    include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/GeneralClass.php';
 
 LayoutClass::includeHeader();
 //include_once '../Application/Layout/header.php';
