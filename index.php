@@ -21,12 +21,22 @@
 if(isset($_POST['login']))
 {
    session_start();
-
+   
    include_once 'Application/Class/GeneralClass.php';
    
-    $_SESSION["uid"] = $_POST['uname'];
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/IncludeClass.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/ValidationLibrary.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/UserModel.php';
 
-    if($_POST['uname']=='admin'){
+$modelAction=new UserFunctionality();
+ $result=$modelAction->checkUser($_POST['uname'],$_POST['pass']);
+ if ($result!=0)
+ {
+     
+    $_SESSION["uid"] = $_POST['uname'];
+    $_SESSION["role"]=$result['role_id'];
+
+    if($_SESSION["role"]==2){
 
         GeneralClass::redirect('Application/Controller/AdminController.php?action=Index', false);
         
@@ -38,4 +48,8 @@ if(isset($_POST['login']))
         GeneralClass::redirect('Application/Controller/HomeController.php?action=Index', false);
         $_SESSION["user"]=true;
     }
+}
+ else {
+    echo 'Incorrect Userid or password.';
+}
 }

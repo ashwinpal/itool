@@ -27,7 +27,7 @@ ob_start();
              }
         else {
                 $msg="";
-               // var_dump($_POST);
+               //var_dump($_POST);
             $result=$modelAction->UpdateUser($_GET['id'],$_POST['uname'],$_POST['role_id'],$_POST['email'],$_POST['password']);
             var_dump($result);
            }
@@ -62,33 +62,16 @@ ob_start();
                 <label>Email id:</label> <input type="text" id="email" name="email" value="<?php echo $details['email_id'];?>"/><br/>
                 <label>Password:</label> <input type="text" id="password" name="password" value="<?php echo $details['password'];?>"/><br/>
                 <label>Confirm Password:</label> <input type="text" id="cpassword" name="cpassword" value="<?php echo $details['password'];?>"/> <br/>
-               <br/>  <input type="submit" name="submit" id="submit" value="Update" />
+               <br/> <br/> <input type="submit" name="submit" id="submit" value="Update" />
                  <input type="reset" name="reset" id="reset" value="Cancel" />
+                 
             </form>
         </div>
-        <a class="page-links" href="index.php"  ><< Back to List</a>
+     <br/>   <a class="page-links" href="index.php"  ><< Back to List</a>
     </body>
 </html>
 
- <?php
-            
-        
  
-            if($_SERVER['QUERY_STRING'] !==""){
-            
-            echo '<div id = "result">';
-            
-            if($_SERVER['QUERY_STRING']==1)
-            { echo "Values have been added."; }
-            else
-                if($_SERVER['QUERY_STRING']==0)
-            { echo "Error in inserting values."; }
-            
-            }
-            
-            echo '<div>'
-        ?>
-
 <?php
     LayoutClass::includeFooter();
 
