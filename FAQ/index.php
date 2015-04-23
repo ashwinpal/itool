@@ -26,10 +26,10 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
        $(this).find(".ans").toggle();       
     });  
         $(".que").mouseover(function(){
-        $(this).css("background", "#FAAC58");
+        $(this).css("background", "#82CAFF");
     });
     $(".ans").mouseover(function(){
-        $(this).css("background", "#F7BE81");
+        $(this).css("background", "#B6B6B4");
     });
     
         $(".que").mouseout(function(){
