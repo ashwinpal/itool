@@ -11,7 +11,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ra
 ?>  
 
 <?php
-   LayoutClass::includeHomeNav();
+   LayoutClass::includeAdminNav();
 ?>
 
 <html>
