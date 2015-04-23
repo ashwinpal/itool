@@ -141,7 +141,7 @@ and open the template in the editor.
                     <div class="col-xs-12 col-sm-6 col-md-4">		
                         <div class="flip4d">
                         <div class="back"></div>
-                        <div class="front"><img src="image/Users.gif" alt="box1" />
+                        <div class="front"><i class="fa fa-bar-chart"></i>
                         </div>
                         
                         </div><!--flip4d-->
