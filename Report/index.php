@@ -34,24 +34,24 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/ReportM
         
            <div id="">
                <form action="index.php" method="post">
-               <label>Product Id</label> <br/><br/>
+               <label>Product Name</label> <br/><br/>
             
              
                
                <select name="selectId" id="selectId">
-                   <option value="0">Select a Product Id</option>
+                   <option value="0">Select a Product Name</option>
                    <?php 
                   
             
                    foreach ($result as $rep) 
-                     { 
+                     {            
                        if ($_POST['selectId']==$rep['product_id'])
                         {
                            
-                            echo "<option selected value=".$rep['product_id'].">".$rep['product_id']."</option>";
+                            echo "<option selected value=".$rep['product_id'].">".$rep['product_name']."</option>";
                         }
                        else {
-                        echo "<option value=".$rep['product_id'].">".$rep['product_id']."</option>";
+                        echo "<option value=".$rep['product_id'].">".$rep['product_name']."</option>";
                            
                        }
                      }
@@ -65,7 +65,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/ReportM
                
          <?php  if(isset($_POST['selectId']))
                      {
-            var_dump($_POST['selectId']);
+          
                      if($_POST['selectId'] === "0")
                                 {
                                     echo 'Please select a Product Id from the list.';

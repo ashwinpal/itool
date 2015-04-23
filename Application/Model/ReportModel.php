@@ -1,6 +1,6 @@
 <?php
 
-include $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/DBAccessClass.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/DBAccessClass.php';
 
 class Report
 {
@@ -59,7 +59,7 @@ class reportFunctionality
         }
     
         public function displayProd() {
-           $query="select distinct product_id from product_invoice"; 
+           $query="select distinct pi.product_id,product_name from product_invoice as pi join product_list as pl ON pi.product_id = pl.product_id"; 
            $statement = $this->dbcon->query($query);
              return($statement);
             

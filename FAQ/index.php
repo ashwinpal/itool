@@ -5,7 +5,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/Include
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/ValidationLibrary.php';
 
-include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/ReprotController.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/AdminFaqController.php';
 
     LayoutClass::includeHeader();
 ?>  
@@ -14,6 +14,16 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Re
    LayoutClass::includeHomeNav();
 ?>
 <html>
+<!--    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("questions").click(function(){
+        $("a").toggle();
+    });
+});
+</script>
+    </head>-->
     <body>
         <h1>FREQUENTLY ASKED QUESTIONS</h1>
         <hr/>
