@@ -13,7 +13,6 @@ LayoutClass::includeHeader();
  
     <?php 
     
-    var_dump($_SESSION['role']);
     
         if($_SESSION['role']==2||$_SESSION['role']=="2")
         {LayoutClass::includeAdminNav();}
