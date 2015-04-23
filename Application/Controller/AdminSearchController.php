@@ -70,7 +70,6 @@ class AdminSearchController implements iAction{
 }
 
 
-echo '<script>alert("entered controller")</script>';
 
 $controllerObj = new AdminSearchController();
 

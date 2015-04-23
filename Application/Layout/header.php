@@ -128,7 +128,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/Message
             </div>
             <form action="../SearchResult/Index.php" class="navbar-form navbar-left collapse navbar-collapse navbar-ex1-collapse" role="search">
                       <div class="form-group">
-                          <input type="text" name="query" id="search_txt" class="form-control" placeholder="Search">
+                          <input type="text" name="query" id="search_txt" class="form-control" value="<?php if(isset($_GET['query'])){echo $_GET['query']; } ?>" placeholder="Search">
                       </div>
                       <button type="submit" id="btn_search" class="btn btn-default">Search</button>
                     </form>

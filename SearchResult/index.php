@@ -10,14 +10,40 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Se
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/SearchModel.php';
 
-if(isset($_GET['query']))
-{
-    echo $_GET['query'];
+LayoutClass::includeHeader();
 
-    $controllerObj->retrieveValues($_GET['query']);
-    
-    //$obj = new SearchFunctionality();
-    
-    //$obj->GetProductId($_GET['query']);
-    
-}
+?>
+<?php 
+        LayoutClass::includeHomeNav();
+    ?>
+<div id="page-wrapper">
+
+            <div class="container-fluid">
+                
+                <h1>Search Result : <?=$_GET['query']?></h1>
+                <br/>
+
+        <?php
+            if(isset($_GET['query']))
+            {
+
+
+                $controllerObj->retrieveValues($_GET['query']);
+
+                //$obj = new SearchFunctionality();
+
+                //$obj->GetProductId($_GET['query']);
+
+            }
+        ?>
+
+            
+            
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+<?php
+    LayoutClass::includeFooter();

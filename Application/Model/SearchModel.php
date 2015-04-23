@@ -1,6 +1,8 @@
 <?php
 
-include $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/DBAccessClass.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/DBAccessClass.php';
+
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/ReportModel.php';
 
 class search{
     
@@ -145,17 +147,22 @@ class SearchFunctionality{
         
         $row = $statement->fetch(PDO::FETCH_ASSOC);
         
-        return $row['product_id'];
-        
+        if($row){
+            
+            return $row['product_id'];
+        }
+        else{
+            return null;
+        }
         //var_dump($row);
         
     }
     
-    public function SearchDatabase($id){
+    public function SearchImportProd($id){
         
       //  $searchList = array();
         
-        $sql="select * from import_product where product_id = :id LIMIT 1";
+        $sql="select * from import_product where product_id = :id order by order_number desc LIMIT 1";
         
         $statement = $this->dbcon->prepare($sql);
         
@@ -165,10 +172,31 @@ class SearchFunctionality{
         
         $row = $statement->fetch(PDO::FETCH_ASSOC);
         
-        return $row['batch_number'];
+        return $row['order_number'];
 
         
     }
+    
+    public function SearchInvoicesProd($id){
+        
+      //  $searchList = array();
+        
+        $sql="select * from product_invoice where product_id = :id order by invoice_number desc LIMIT 1";
+        
+        $statement = $this->dbcon->prepare($sql);
+        
+        $statement->bindValue(':id', $id);
+
+        $statement->execute();
+        
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+        
+        return $row['invoice_number'];
+
+        
+    }
+    
+    
             
 }
     
