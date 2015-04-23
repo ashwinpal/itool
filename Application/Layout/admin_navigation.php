@@ -17,14 +17,14 @@
                         </ul>
                     </li>  
                     <li><a href="<?php echo '../AdminCategory';?>"><i class="fa fa-home fa-lg"></i> Category List</a></li>   
-                    <li><a href="<?php echo '../AdminProduct';?>"><i class="fa fa-home fa-lg"></i> Product List</a></li>   
-                    <li><a href="<?php echo '../AdminImport';?>"><i class="fa fa-home fa-lg"></i> Purchase List</a></li>   
+                    <li><a href="<?php echo '../AdminProduct';?>"><i class="fa fa-list-ol"></i> Product List</a></li>   
+                    <li><a href="<?php echo '../AdminImport';?>"><i class="fa fa-shopping-cart fa" ></i> Purchase List</a></li>   
                     <li><a href="<?php echo '../Application/Controller/AdminSearchController.php?action=Index';?>"><i class="fa fa-home fa-lg"></i> Track Purchase</a></li>  
-                    <li><a href="<?php echo '../invoicesAdmin';?>"><i class="fa fa-home fa-lg"></i> Invoices And Bills</a></li> 
-                    <li><a href="<?php echo '../Application/Controller/AdminSearchController.php?action=Index';?>"><i class="fa fa-home fa-lg"></i> Stock List</a></li>
-                    <li><a href="<?php echo '../AdminReport';?>"><i class="fa fa-home fa-lg"></i> Reports</a></li>
-                    <li><a href="<?php echo '../Charts';?>"><i class="fa fa-home fa-lg"></i> Charts</a></li>
-                    <li><a href="<?php echo '../rating';?>"><i class="fa fa-home fa-lg"></i> Rate a Product</a></li>
+                    <li><a href="<?php echo '../invoicesAdmin';?>"><i class="fa fa-money fa"></i> Invoices And Bills</a></li> 
+                    <li><a href="<?php echo '../Application/Controller/AdminSearchController.php?action=Index';?>"><i class="fa fa-line-chart fa"></i> Stock List</a></li>
+                    <li><a href="<?php echo '../AdminReport';?>"><i class="fa fa-list-alt fa"></i> Reports</a></li>
+                    <li><a href="<?php echo '../Charts';?>"><i class="fa fa-bar-chart fa"></i> Charts</a></li>
+                    <li><a href="<?php echo '../rating';?>"><i class="fa fa-star fa"></i> Rate a Product</a></li>
                     <li><a href="<?php echo '../AdminFaq';?>"><i class="fa fa-home fa-lg"></i> FAQ'S</a></li>
                 </ul>
             </div>
