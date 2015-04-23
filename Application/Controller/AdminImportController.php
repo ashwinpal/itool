@@ -20,12 +20,14 @@ class AdminImportController implements iAction{
     
     public function formvalues(){
         $this->model =  new importProduct();
-        $this->model->setorderNumber($_POST['order_number']);
+        $this->model->setproductId($_POST['product_list']);
+        $this->model->setQuantity($_POST['qty']);
+   
     }
      
     public function insert(){
         $modelAction=new ImportFunctionality();
-        //var_dump($this->model);
+        var_dump($this->model);
         $result=$modelAction->InsertOrder($this->model);
         GeneralClass::redirect('/project/itool/AdminImport/Index.php?'.$result, false);
     }

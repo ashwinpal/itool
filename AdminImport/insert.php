@@ -17,14 +17,16 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/AddCate
 $modelAction=new CategoryFunctionality();
  $result=$modelAction->DisplayCat();
  
- if(onsubmitCheck('submit'))
-           {
-    
-            $controllerObj->formValues();
-            $controllerObj->insert(); 
+ if(isset($_POST['submit']))
+     {
+         echo 'hi';
+         var_dump($_POST);
+     }
+           // $controllerObj->formValues();
+           // $controllerObj->insert(); 
             
             
-           }
+           
 
  ?>   
 
@@ -46,6 +48,9 @@ function showProd(str) {
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("product_list").innerHTML = xmlhttp.responseText;
+                var Result = xmlhttp.responseText.split("value");
+alert(Result[1]);
+ //Result[1];
             }
         }
         xmlhttp.open("GET","getprod.php?q="+str,true);
@@ -84,12 +89,12 @@ function showProd(str) {
                </select>
                <br/>
                <label>Product</label>
-               <select name="product_list" id="product_list">
+               <select name="product_list" id="product_list" >
                    <option>Select Product</option>
                </select>
                <br/>
                 <label> Quantity: </label><input type="text" id="qty" name="qty"/><br/>
-                <input type="submit" name="submit" id="submit" value="Add Category" />
+                <input type="submit" name="submit" id="submit" value="Place Order" />
               </div>
                       
             </form> 

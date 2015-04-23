@@ -187,8 +187,6 @@ class invoicesFunctionality
     public function UpdateValues($in,$pr,$qn,$idt,$sp){
         
        $sql="Update product_invoice set product_id = :product_id, quantity = :quantity, invoice_date = :invoice_date, selling_price = :selling_price where invoice_number = :invoice_number";
-        
-       
         $statement = $this->dbcon->prepare($sql);
 
         $statement->bindValue(':invoice_number', $in);
