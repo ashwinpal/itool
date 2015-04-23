@@ -234,9 +234,10 @@ ul.alert-dropdown {
 	transition: transform .5s linear 0s;
 }
 
-.flip4d > .front img{
+.flip4d > .front i{
 	width: 100px;
         height: 80px;
+        color: #fff;
         margin-left: 70px;
         margin-top: 35px;
 	}

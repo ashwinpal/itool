@@ -25,12 +25,12 @@ else
 <html>
     <head></head>
     <body>
-        <div id="product_heading">
+        <div id="heading">
              <h1>Support FAQ</h1>
         </div>
         <hr/>
         
-         <div id="product_nav">
+         <div id="tab">
             <li>
                 <ul> 
                     <a class="page-links" href="insert.php"  >Insert FAQs</a> &nbsp;

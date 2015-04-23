@@ -38,7 +38,7 @@ LayoutClass::includeHeader();
                     <div class="col-xs-12 col-sm-6 col-md-4">		
                         <div class="flip4d">
                         <div class="back"></div>
-                        <div class="front"><img src="image/Users.gif" alt="box1" />
+                        <div class="front"><i class="fa fa-bar-chart fa-5x"></i>
                         </div>
                         
                         </div><!--flip4d-->
@@ -47,64 +47,68 @@ LayoutClass::includeHeader();
                     <div class="col-xs-12 col-sm-6 col-md-4">
                                                 <div class="flip4d">
                         <div class="back">Box 1 - Back</div>
-                        <div class="front"><img src="image/Users.gif" alt="box1" />
+                        <div class="front"><i class="fa fa-tags fa-5x"></i>
                         </div>
                         </div><!--flip4d-->
-
+                         <div class="box_title">Category List</div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-4">
                                                 <div class="flip4d">
                         <div class="back">Box 1 - Back</div>
-                        <div class="front"><img src="image/Users.gif" alt="box1" />
+                        <div class="front"><i class="fa fa-shopping-cart fa-5x" ></i>
                         </div>
                         </div><!--flip4d-->
+                        <div class="box_title">Purchase List</div>
 
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-4">		
                         <div class="flip4d">
                         <div class="back">Box 1 - Back</div>
-                        <div class="front"><img src="image/Users.gif" alt="box1" />
+                        <div class="front"><i class="fa fa-backward fa-5x"></i>
                         </div>
                         </div><!--flip4d-->
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                                                <div class="flip4d">
-                        <div class="back">Box 1 - Back</div>
-                        <div class="front"><img src="image/Users.gif" alt="box1" />
-                        </div>
-                        </div><!--flip4d-->
+                          <div class="box_title">Track Purchase</div>
 
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-4">
                                                 <div class="flip4d">
                         <div class="back">Box 1 - Back</div>
-                        <div class="front"><img src="image/Users.gif" alt="box1" />
+                        <div class="front"><i class="fa fa-money fa-5x"></i>
                         </div>
                         </div><!--flip4d-->
-
+                    <div class="box_title">Invoices And Bills</div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                                <div class="flip4d">
+                        <div class="back">Box 1 - Back</div>
+                        <div class="front"><i class="fa fa-star fa-5x"></i>
+                        </div>
+                        </div><!--flip4d-->
+                        <div class="box_title">Rate A Product</div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-4">		
                         <div class="flip4d">
                         <div class="back">Box 1 - Back</div>
-                        <div class="front"><img src="image/Users.gif" alt="box1" />
+                        <div class="front"><i class="fa fa-list-alt fa-5x"></i>
                         </div>
                         </div><!--flip4d-->
+                        <div class="box_title">Reports</div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-4">
                                                 <div class="flip4d">
                         <div class="back">Box 1 - Back</div>
-                        <div class="front"><img src="image/Users.gif" alt="box1" />
+                        <div class="front"><i class="fa fa-line-chart fa-5x"></i>
                         </div>
                         </div><!--flip4d-->
-
+                <div class="box_title">Stock List</div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-4">
                                                 <div class="flip4d">
                         <div class="back">Box 1 - Back</div>
-                        <div class="front"><img src="image/Users.gif" alt="box1" />
+                        <div class="front"><i class="fa fa-bar-chart fa-5x"></i>
                         </div>
                         </div><!--flip4d-->
-
+                        <div class="box_title">Charts</div>
                     </div>
  
                 </div> 

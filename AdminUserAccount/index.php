@@ -37,7 +37,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/UserMod
                     {
                        
                        echo '<tr>';
-                       echo '<td>'. $q['user_id'].'</td><td>'.$q['user_name'].'</td><td>'.$q['role_name'].'</td><td>'. $q['email_id'].'</td><td><a href=edit.php?id='.$q['user_id'].'>Edit</a> / <a href=delete.php?id='.$q['user_id'].'>Delete</a></td>';
+                       echo '<td>'. $q['user_id'].'</td><td>'.$q['user_name'].'</td><td>'.$q['role_name'].'</td><td>'. $q['email_id'].'</td><td><a href=edit.php?id='.$q['user_id'].'>Edit</a> / <a href=confirm.php?id='.$q['user_id'].'>Delete</a></td>';
                        echo '</tr>';   
                      }
                  
