@@ -1,6 +1,7 @@
 <?php
-    ob_start();
 
+    ob_start();
+    
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/IncludeClass.php';
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/ValidationLibrary.php';
@@ -30,15 +31,20 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         <div role="tabpanel" class="tab-pane active" id="home">               
 <!--            <h3>Update Category</h3>-->
 <br/>
-            <form action="update.php?id=<?=$id?>" method="post">
-<!--                <label>Product Id:</label>  <input type="hidden" name="id" id="id" /><br/>-->
-                <label>Product Name:</label>&nbsp;<input type="text" name="name" id="name" /><br/>
-                <label>Product Description:</label>&nbsp;  <textarea rows="3" cols="19" name="desc" id="desc" ></textarea><br/>
-                <label>Category Id:</label>&nbsp; <input type="text" name="catid" id="catid" /><br/>
-                <label>Buying Price:</label>&nbsp; <input type="text" name="price" id="price" /><br/>
-                <label>Image:</label>&nbsp; <input type="text" name="image" id="image" /><br/><br/>
-                <input type="submit" name="submit" id="submit" value="Update Product" />
-            </form>
+        <form action="rateProduct.php" method="get">
+                <label>Product Id: </label><?php $a=$_GET['id'];echo $a; ?>
+                <input type="hidden" name="pid" value="<?=$_GET['id']?>">
+                <input type="radio" name="rate" value="1">1<br/>
+                <input type="radio" name="rate" value="2">2<br/>
+                <input type="radio" name="rate" value="3">3<br/>
+                <input type="radio" name="rate" value="4">4<br/>
+                <input type="radio" name="rate" value="5">5<br/><br/>
+                
+                <input type="submit" name="submit" value="Rate It!" id="rate" />
+        </form>    
+                <br/><br/>
+                
+                <div id="status"></div>
         </div>
     </div>
 </div>
