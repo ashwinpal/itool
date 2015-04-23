@@ -19,7 +19,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Re
 <?php
 
 $modelAction = new reportFunctionality();
-echo $_GET['selectId'];
+
       $view =$modelAction->DisplayProductReport($_GET['selectId']);
       
 foreach($view as $row)

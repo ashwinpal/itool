@@ -64,9 +64,9 @@ class reportFunctionality
              return($statement);
             
         }
-     public function DisplayProductReport()
+     public function DisplayProductReport($id)
     {
-        $query="select pl.product_id, product_name,product_description,category_id,avg_rating,invoice_date,avg(quantity*selling_price) as total_sellingPrice,buying_price*sum(quantity) as total_buyingPrice,((buying_price*sum(quantity))-avg(quantity*selling_price))as difference from product_list as pl  RIGHT JOIN product_invoice as pi ON pl.product_id=pi.product_id group by pi.product_id";
+        $query="select pl.product_id, product_name,product_description,category_id,avg_rating,invoice_date,avg(quantity*selling_price) as total_sellingPrice,buying_price*sum(quantity) as total_buyingPrice,((buying_price*sum(quantity))-avg(quantity*selling_price))as difference from product_list as pl  RIGHT JOIN product_invoice as pi ON pl.product_id=pi.product_id where pi.product_id='".$id."' group by pi.product_id";
         //$query = "select product_id from product_invoices";
          
         $statement = $this->dbcon->query($query);
