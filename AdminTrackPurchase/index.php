@@ -15,7 +15,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/ImportP
     ?>
 
         <?php
-            LayoutClass::includeHomeNav();
+            LayoutClass::includeAdminNav();
         ?>
 
 <?php 

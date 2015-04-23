@@ -5,14 +5,10 @@
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Accounts <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
+                            
+                            
                             <li>
-                                <a href="#"><i class="fa fa-home fa-lg"></i> Roles</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-home fa-lg"></i> User Accounts</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-home fa-lg"></i> Admin Accounts</a>
+                                <a href="../AdminUserAccount"><i class="fa fa-home fa-lg"></i> Admin Accounts</a>
                             </li>
                         </ul>
                     </li>  
