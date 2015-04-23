@@ -24,11 +24,10 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         <hr/>
         
   
-          <div>
+        <div id="tab">
             <form action="" method="post">
                <?php 
-                $controllerObj->displayPublic();  
-                
+                $controllerObj->displayPublic();                 
                ?>                      
             </form> 
         </div>

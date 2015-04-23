@@ -187,7 +187,7 @@ class ImportFunctionality{
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         
             
-          echo '<table border="1"> <th>Order Number</th><th>Category ID</th><th>Product Name</th><th>Quantity</th><th>Action</th>';
+          echo '<table class="table table-striped"> <th>Order Number</th><th>Category ID</th><th>Product Name</th><th>Quantity</th><th>Action</th>';
               foreach($statement as $q)
                 {
                   if($q['quantity']!=0)
