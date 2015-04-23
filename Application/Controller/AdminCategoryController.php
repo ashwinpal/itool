@@ -54,7 +54,7 @@ class AdminCategoryController implements iAction{
 //        }    
 }
 
-echo '<script>alert("entered controller")</script>';
+//echo '<script>alert("entered controller")</script>';
 
 $controllerObj = new AdminCategoryController();
 

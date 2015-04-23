@@ -28,16 +28,16 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         <hr/>
 <div id="tab" role="tabpanel">
     
-        <ul class="nav nav-tabs" role="tablist">
+       <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#home" class="page-links" aria-controls="home" role="tab" data-toggle="tab">Add New Product</a></li>
             <li role="presentation"><a href="#profile" aria-controls="profile" class="page-links" role="tab" data-toggle="tab">View Product</a></li>
-       </ul>
+        </ul>
 
       <!-- Tab panes -->
-      <div class="heading3"class="tab-content">
-    <div id="tab" role="tabpanel" class="tab-pane active" id="home">
+      <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
 <!--        <div id="add_product">-->
-            <h3>Add New Products</h3>
+<!--            <h3>Add New Products</h3>-->
             <form action="" method="post">
                 <label>Product Id:</label>  <input class="form-control" placeholder="PID000" type="text" name="id" id="id" /><br/>
                 <label>Product Name:</label>  <input class="form-control" placeholder="Name" type="text" name="name" id="name" /><br/>
