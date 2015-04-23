@@ -22,7 +22,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         {
         if($_GET['qty']>=$_POST['rqty'])
         {
-        $controllerObj->update($_POST['rqty'],$_GET['qty'],$_POST['received_date'],$_POST['expiry_date'],$_GET['id']);
+        $controllerObj->update($_POST['rqty'],$_GET['orqty'],$_GET['qty'],$_POST['received_date'],$_POST['expiry_date'],$_GET['id']);
         }
         else
            $err="Received quantity should not more than quantity ordered.<br/>";

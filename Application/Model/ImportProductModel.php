@@ -9,6 +9,7 @@ class importProduct
     private $orderNumber;
     private $productId;
     private $quantity;
+    private $recquantity;
     private $receivedDate;
     private $userId;
     
@@ -50,11 +51,11 @@ class importProduct
     }
     public function getRecQuantity()
     {
-        return $this->quantity;
+        return $this->recquantity;
     }
     public function setRecQuantity($value)
     {
-        $this->quantity = $value;
+        $this->recquantity = $value;
     }
     public function getQuantity()
     {
@@ -118,33 +119,18 @@ class ImportFunctionality{
         } 
     }
 
-    public function InsertOrder($model)
+    public function InsertOrder($prodid,$qty,$user_id)
                 {
         
-       $sql = "insert into import_product (product_id,quantity) values (:prod_id,:qty)";
-        
+       $sql = "insert into import_product (product_id,quantity,user_id) values ('".$prodid."',".$qty.",'".$user_id."')";
+       //var_dump($sql);
         $statement = $this->dbcon->prepare($sql);
-        
-        //var_dump($model);
-        
-        $statement->bindValue(':prod_id', $model->getproductId());
-        $statement->bindValue(':qty', $model->getQuantity());
-        
+        //var_dump($statement);
         $success = $statement->execute();
-        
-       // var_dump($success);
-        
-        $statement->closeCursor();
+        //var_dump($success);
+         GeneralClass::redirect('/project/itool/AdminImport/Index.php?'.$success, false);
                 
-         if($success)
-        {
-            return 1;
-
-        }
-        else
-        {
-            return 0;
-        } 
+        
     }
     public function DisplayOrderList()
     {
@@ -171,9 +157,9 @@ class ImportFunctionality{
         //var_dump($statement);
          return($statement);
     }
-    public function DisplayProd($cid)
+    public function DisplayProd()
     {
-        $query="select product_name from product_list where category_id=".$cid;
+        $query="select product_id,product_name from product_list";
         $statement = $this->dbcon->query($query);
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         return($statement);
@@ -207,7 +193,7 @@ class ImportFunctionality{
     public function DisplayOrders(){
         
 
-        $query="select order_number, product_name,category_id,quantity from import_product as ip LEFT JOIN product_list as pl ON ip.product_id=pl.product_id";
+        $query="select order_number, product_name,category_id,quantity,recieved_qty from import_product as ip LEFT JOIN product_list as pl ON ip.product_id=pl.product_id";
         $statement = $this->dbcon->query($query);
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         
@@ -219,7 +205,7 @@ class ImportFunctionality{
                   {
                 echo '<tr>';
                 echo '<td>'. $q['order_number'].'</td><td>'. $q['category_id'].'</td><td>'.$q['product_name'].'</td><td>'. $q['quantity'].'</td>'
-                        . '<td><a href=recieved_orders.php?id='.$q['order_number'].'&qty='.$q['quantity'].'>Received</a> &nbsp;/<a href=confirm.php?id='.$q['order_number'].'>Cancel Order</a></td>';
+                        . '<td><a href=recieved_orders.php?id='.$q['order_number'].'&qty='.$q['quantity'].'&orqty='.$q['recieved_qty'].'>Received</a> &nbsp;/<a href=confirm.php?id='.$q['order_number'].'>Cancel Order</a></td>';
                 echo '</tr>';   
                         
                   }

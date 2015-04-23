@@ -57,10 +57,12 @@ class AdminImportController implements iAction{
         $result=$modelAction->DisplayPublic($this->model);
     }
 
-    public function update($rqty,$qty,$rd,$ed,$on){
+    public function update($rqty,$olrqty,$qty,$rd,$ed,$on){
         
         $this->model = new importProduct();
+        
         $nqty=$qty-$rqty;
+        $rqty=$olrqty+$rqty;
         //echo $qty;
          $this->model->setRecQuantity($rqty);
         $this->model->setQuantity($nqty);
