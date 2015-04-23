@@ -6,7 +6,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/Include
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/ValidationLibrary.php';
 
-include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/MessageModel.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/ReportController.php';
 
 LayoutClass::includeHeader();
 
@@ -16,24 +16,41 @@ LayoutClass::includeHeader();
         LayoutClass::includeHomeNav();
     ?>
     
-    <?php
-        
-        if(onsubmitCheck('submit'))
-            // validation 1 , checking if submit is clicked
-            {
-            
-            
-            
-        }
-        
-    ?>
-        
-    <div id="page-wrapper">
+
+<div id="page-wrapper">
 
             <div class="container-fluid">
+                <h2>Profit / Loss Chart</h2>
 
+    <?php
+            $modelAction = new reportFunctionality();    
+
+    $view =$modelAction->DisplayProductReport($_GET['selectId1']);
+
+    foreach($view as $row)
+     {
+
+        echo "<div>Product 1 :<span id='p1'> " . $row['product_name'] . "</span></div><br/>";
+        echo "<div>Value :<span id='d1'> " . $row['difference'] . "</span></div><br/>";
+        
+    }
+    $view =$modelAction->DisplayProductReport($_GET['selectId2']);
+
+    foreach($view as $row)
+     {
+
+        echo "<div>Product 2 : <span id='p2'>" . $row['product_name'] . "</span></div><br/>";
+        echo "<div>Value : <span  id='d2'>" . $row['difference'] . "</span></div><br/>";
+        
+    }
+
+?>
+        
+    
+        
+    
                     
-                <div id="chart1" style="height:400px;width:600px; "></div>
+                <div id="chart1" style="height:400px;width:300px; "></div>
 
             
             

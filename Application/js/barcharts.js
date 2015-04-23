@@ -1,12 +1,17 @@
 $(document).ready(function(){
-    var s1 = [200, 600, 700, 1000];
-    var s2 = [460, -210, 690, 820];
-    var s3 = [-260, -440, 320, 200];
+    
+    var p1 = $('#p1');
+    var p2 = $('#p2');
+    var d1 = $('#d1');
+    var d2 = $('#d2');
+    
+    var s1 = [parseInt(d1.html())];
+    var s2 = [parseInt(d2.html())];
     // Can specify a custom tick Array.
     // Ticks should match up one for each y value (category) in the series.
-    var ticks = ['May', 'June', 'July', 'August'];
+    var ticks = ['Product Comparison'];
      
-    var plot1 = $.jqplot('chart1', [s1, s2, s3], {
+    var plot1 = $.jqplot('chart1', [s1, s2], {
         // The "seriesDefaults" option is an options object that will
         // be applied to all series in the chart.
         seriesDefaults:{
@@ -17,9 +22,8 @@ $(document).ready(function(){
         // option on the series option.  Here a series option object
         // is specified for each series.
         series:[
-            {label:'Hotel'},
-            {label:'Event Regristration'},
-            {label:'Airfare'}
+            {label:p1.html()},
+            {label:p2.html()}
         ],
         // Show the legend and put it outside the grid, but inside the
         // plot container, shrinking the grid to accomodate the legend.
