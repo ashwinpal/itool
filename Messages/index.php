@@ -32,15 +32,6 @@ LayoutClass::includeHeader();
 
             <div class="container-fluid">
 
-<!--    <form action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-        <label>Enter a new keyword : </label>
-        <input type="text" name="keyword"/>
-        <br>
-        <input type="submit" name="submit" value="Submit"/>
-        
-    </form>
-<br><br>
-<a style="color: black" href="<?php //echo htmlspecialchars($_SERVER['PHP_SELF']).'?action=Delete';?>">delete</a>-->
 
         <?php
         

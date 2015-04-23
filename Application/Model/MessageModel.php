@@ -59,11 +59,47 @@ class MessageFunctionality{
     }
     
     
+    public function retrieveAllMessages($id){
+        
+        $msgList = array();
+        
+        $sql="select * from notify_person where user_id = :id order by id desc";
+        
+        $statement = $this->dbcon->prepare($sql);
+
+        $statement->bindValue(':id', $id);
+
+        $statement->execute();
+        
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        
+        $row_count=$statement->rowCount();
+            
+         if($row_count > 0)
+         {
+        
+            $i=0;
+
+            foreach ($statement as $r){
+
+                $msgList[$i] = $r['alert_id'];
+                $i++;
+            }
+            
+            return $this->retrieveMsgSub($msgList);
+         }
+        
+        
+        return NULL;
+        
+    }
+    
+    
     public function retrieve5Msg($id)
     {
         $msgList = array();
         
-        $sql="select * from notify_person where user_id = :id LIMIT 5";
+        $sql="select * from notify_person where user_id = :id order by id desc LIMIT 5";
         
         $statement = $this->dbcon->prepare($sql);
 

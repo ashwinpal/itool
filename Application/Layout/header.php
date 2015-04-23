@@ -134,7 +134,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/Message
                     </form>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-                <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
+                <li class="dropdown"><a href="../FAQ/index.php">
                         <i class="fa fa-question-circle fa-lg"></i></a>
                 </li>
                 <li class="dropdown"><a href="" data-toggle="modal" data-target="#messageModal">
@@ -203,27 +203,10 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/Message
                         }
                         ?>
                         
-                        <li>
-                            <a href="#">Message.....</a>
-                        </li>
-                        <li>
-                            <a href="#">Message....</a>
-                        </li>
-                        <li>
-                            <a href="#">Message....</a>
-                        </li>
-                        <li>
-                            <a href="#">Message....</a>
-                        </li>
-                        <li>
-                            <a href="#">Message....</a>
-                        </li>
-                        <li>
-                            <a href="#">Message....</a>
-                        </li>
+                     
                         <li class="divider"></li>
                         <li>
-                            <a href="#">View All</a>
+                            <a href="../Messages/allMessages.php">View All</a>
                         </li>
                     </ul>
                 </li>
