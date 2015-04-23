@@ -7,6 +7,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/Validat
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/AdminImportController.php';
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/AddCategoryModel.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/ImportProductModel.php';
     LayoutClass::includeHeader();
     
     GeneralClass::checkAdmin($_SESSION['role']);
@@ -16,52 +17,21 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/AddCate
             LayoutClass::includeAdminNav();
         ?>
 <?php
-$modelAction=new CategoryFunctionality();
- $result=$modelAction->DisplayCat();
+$modelAction=new ImportFunctionality();
+ $result_prod=$modelAction->DisplayProd();
  
  if(isset($_POST['submit']))
      {
-         //echo 'hi';
-         //var_dump($_POST);
+         
+ $result=$modelAction->InsertOrder($_POST['product_list'],$_POST['qty'],$_SESSION['uid']);
+ 
      }
-           // $controllerObj->formValues();
-           // $controllerObj->insert(); 
-            
-            
-           
-
+       
  ?>   
 
 <html>
     <head>
-        <script>
-function showProd(str) {
-    if (str == "") {
-        document.getElementById("product_list").innerHTML = "";
-        return;
-    } else { 
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("product_list").innerHTML = xmlhttp.responseText;
-                var Result = xmlhttp.responseText.split("value");
-alert(Result[1]);
- //Result[1];
-            }
-        }
-        xmlhttp.open("GET","getprod.php?q="+str,true);
-        xmlhttp.send();
-    }
-}
-</script>
-
-    </head>
+            </head>
     <body>
         <div id="heading">
              <h1>Import Product</h1>
@@ -71,28 +41,18 @@ alert(Result[1]);
             <br/>
           <div id="tab">
             <form action="" method="post">
-               <label>Category Id:</label> 
                
-               <select class="form-control" name="selectCat" id="selectCat" onchange="showProd(this.value)" >
-                   <option value="0">Select Category</option>
-                   <?php foreach ($result as $cat) 
-                     { 
-                       if ($_POST['selectCat']==$cat['category_id'])
-                        {
-                           
-                            echo "<option selected value=".$cat['category_id'].">".$cat['category_name']."</option>";
-                        }
-                       else {
-                        echo "<option value=".$cat['category_id'].">".$cat['category_name']."</option>";
-                           
-                       }
-                     }
-                   ?> 
-               </select>
-               <br/>
                <label>Product</label>
                <select class="form-control" name="product_list" id="product_list" >
                    <option>Select Product</option>
+                   <?php 
+                    
+                    foreach ($result_prod as $prod) 
+                     { 
+                       echo "<option value=".$prod['product_id'].">".$prod['product_name']."</option>";
+                     }
+                     //echo "<option value='-1'>No product available</option>";
+                   ?> 
                </select>
                <br/>
                 <label> Quantity: </label><input class="form-control" type="text" id="qty" name="qty"/><br/>
