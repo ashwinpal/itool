@@ -14,9 +14,10 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Re
 <?php
    LayoutClass::includeHomeNav();
 ?>
-<html>
-    <body>
+<div id="heading">
         <h1>Report Generated</h1>
+</div>
+<div id="tab">
 <?php
 
 $modelAction = new reportFunctionality();
@@ -25,18 +26,19 @@ $modelAction = new reportFunctionality();
       
 foreach($view as $row)
  {
-    echo "Product Id: " . $row['product_id'] . "<br/>";
-    echo "Product Name:" . $row['product_name'] . "<br/>";
-    echo "Product Description: " . $row['product_description'] . "<br/>";
-    echo "Category Id: " . $row['category_id'] . "<br/>";
-    echo "Rating: " . $row['avg_rating'] . "<br/>";
-    echo "Invoice Date: " . $row['invoice_date'] . "<br/>";
-    echo "Total Selling Price: " . $row['total_sellingPrice'] . "<br/>";
-    echo "Total Buying Price: " . $row['total_buyingPrice'] . "<br/>";
-    echo "Difference: " . $row['difference'] . "<br/>";
+  
+    echo "<label style='color:#2574A9;'><strong>Product Id: </strong></label>&nbsp;" . $row['product_id'] . "<br/>";
+    echo "<label style='color:#2574A9;'><strong>Product Name: </strong></label>&nbsp;" . $row['product_name'] . "<br/>";
+    echo "<label style='color:#2574A9;'><strong>Product Description: </strong></label>&nbsp;" . $row['product_description'] . "<br/>";
+    echo "<label style='color:#2574A9;'><strong>Category Id: </strong></label>&nbsp;" . $row['category_id'] . "<br/>";
+    echo "<label style='color:#2574A9;'><strong>Rating: </strong></label>&nbsp;" . $row['avg_rating'] . "<br/>";
+    echo "<label style='color:#2574A9;'><strong>Invoice Date: </strong></label>&nbsp;" . $row['invoice_date'] . "<br/>";
+    echo "<label style='color:#2574A9;'><strong>Total Selling Price: </strong></label>&nbsp;" . $row['total_sellingPrice'] . "<br/>";
+    echo "<label style='color:#2574A9;'><strong>Total Buying Price: </strong></label>&nbsp;" . $row['total_buyingPrice'] . "<br/>";
+    echo "<label style='color:#2574A9;'><strong>Difference: </strong></label>&nbsp;" . $row['difference'] . "<br/>";
     if($row['difference']>0)
     {
-        echo "<strong>It is in PROFIT</strong>";
+        echo "<label style='color:#335f7d;'><strong>It is in PROFIT</strong></label>";
     }
     elseif ($row['difference']<0) {
 
@@ -50,10 +52,7 @@ foreach($view as $row)
 }
 
 ?>
-    </body>
-</html>
-
-
+</div>
 <?php
     LayoutClass::includeFooter();
 

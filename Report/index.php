@@ -23,22 +23,16 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/ReportM
  
  ?>   
 
-<html>
-    <head>
-    </head>
-    <body>
-        <div id="product_heading">
+        <div id="heading">
              <h1>Report Generation</h1>
         </div>
         <hr/><br/>
         
-           <div id="">
+           <div id="tab">
                <form action="index.php" method="post">
                <label>Product Name</label> <br/><br/>
             
-             
-               
-               <select name="selectId" id="selectId">
+               <select class="form-control" name="selectId" id="selectId">
                    <option value="0">Select a Product Name</option>
                    <?php 
                   
@@ -57,18 +51,17 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/ReportM
                      }
             
                    ?> 
-               </select>
-               
-            &nbsp;&nbsp;&nbsp;
-            <input type="submit" name="submit" id="submit" value="Generate Report"/>
+               </select>             
+            <br/>
+            <input class="buttonstyle" type="submit" name="submit" id="submit" value="Generate Report"/>
             </form>
-               
+              
          <?php  if(isset($_POST['selectId']))
                      {
           
                      if($_POST['selectId'] === "0")
                                 {
-                                    echo 'Please select a Product Name from the list.';
+                                    echo '<label style="color:red;"><strong>Please select a Product Name from the list.</strong></label>';
                      }
                     else {
                         GeneralClass::redirect('GetReport.php?selectId='.$_POST['selectId'], false);
@@ -76,12 +69,10 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/ReportM
              
             }
              
-             
+           
              ?>
-        
-    
-    </body>
-</html>
+               
+ </div> 
 
 
 <?php

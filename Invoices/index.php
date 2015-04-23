@@ -73,7 +73,7 @@ ob_start();
             
             }
             
-            echo '<div>'
+
         ?>
 
 <?php
