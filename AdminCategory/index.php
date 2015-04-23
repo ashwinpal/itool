@@ -15,24 +15,14 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         ?>
 <?php
     if(onsubmitCheck('submit'))
-        {
-        
-//        $cat = new AddCategory();
-//        $cat->getCategory_Name($_POST['category_id']);
-//        
-//        $catModel = new CategoryFunctionality();
-//        $a=$catModel->InsertCategory($cat);
-        
-        //GeneralClass::redirect('../AdminCategory/Index.php?'.$a, false);
-        
+        {           
         $controllerObj->formValues();
         $controllerObj->insert();
-       // $controllerObj->display();
-    }
+}
 
 ?>
 
-        <div id="category_heading">
+        <div id="heading">
              <h1>Category</h1>
         </div>
         <hr/>
@@ -46,8 +36,8 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
 <!--             <h3>Add New Category</h3>-->
 <br/><br/>
              <form action="" method="post">
-                <label>Category Name:</label>  <input type="text" name="name" id="name" /><br/>
-                <input  type="submit" name="submit" id="submit" value="Add Category" />
+                <label>Category Name:</label>  <input class="form-control" type="text" name="name" id="name" /><br/><br/>
+                <input class="buttonstyle" type="submit" name="submit" id="submit" value="Add Category" />
             </form>
         </div>
 
@@ -56,8 +46,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
             <br/>
             <form action="" method="post">
                <?php 
-                $controllerObj->display();  
-                
+                $controllerObj->display();                  
                ?>                      
             </form> 
         </div>

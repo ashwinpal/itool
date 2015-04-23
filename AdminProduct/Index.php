@@ -22,14 +22,11 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
   }  
 ?>
 
-<html>
-    <head></head>
-    <body>
-        <div id="product_heading">
+        <div id="heading">
              <h1>Product</h1>
         </div>
         <hr/>
-<div role="tabpanel">
+<div id="tab" role="tabpanel">
     
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#home" class="page-links" aria-controls="home" role="tab" data-toggle="tab">Add New Product</a></li>
@@ -37,32 +34,30 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
        </ul>
 
       <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">
+      <div class="heading3"class="tab-content">
+    <div id="tab" role="tabpanel" class="tab-pane active" id="home">
 <!--        <div id="add_product">-->
             <h3>Add New Products</h3>
             <form action="" method="post">
-                <label>Product Id:</label>  <input type="text" name="id" id="id" /><br/>
-                <label>Product Name:</label>  <input type="text" name="name" id="name" /><br/>
-                <label>Product Description:</label>  <textarea rows="3" cols="19" name="desc" id="desc" ></textarea><br/>
-                <label>Category Id:</label> <input type="text" name="catid" id="catid" /><br/>
-                <label>Buying Price</label> <input type="text" name="price" id="price" /><br/>
-                <label>Image:</label> <input type="text" name="image" id="image" /><br/>
-                <input type="submit" name="submit" id="submit" value="Add Product" />
+                <label>Product Id:</label>  <input class="form-control" placeholder="PID000" type="text" name="id" id="id" /><br/>
+                <label>Product Name:</label>  <input class="form-control" placeholder="Name" type="text" name="name" id="name" /><br/>
+                <label>Product Description:</label>  <textarea class="form-control" rows="3" cols="19" name="desc" id="desc" ></textarea><br/>
+                <label>Category Id:</label> <input class="form-control" placeholder="1" type="text" name="catid" id="catid" /><br/>
+                <label>Buying Price</label> <input class="form-control" placeholder="12.00" type="text" name="price" id="price" /><br/>
+                <input class="buttonstyle" type="submit" name="submit" id="submit" value="Add Product" />
             </form>           
     </div>
       
     <div role="tabpanel" class="tab-pane" id="profile"> 
 <!--        <div id="view_product">-->
-            <h3>View Products</h3>
+        <h3>View Products</h3>
             <form>
                 <?php $controllerObj->display(); ?>
             </form>           
     </div>
   </div>
 </div>
-    </body>
-</html>
+
         <?php        
             if($_SERVER['QUERY_STRING'] !==""){
             

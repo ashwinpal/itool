@@ -81,7 +81,7 @@ class CategoryFunctionality{
         
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         
-         echo '<table border="1"> <th>Id</th><th>Name</th><th>Update</th><th>Delete</th>';
+         echo '<table class="table table-striped"> <th>Id</th><th>Name</th><th>Update</th><th>Delete</th>';
          foreach ($statement as $q){
             
                 echo '<tr>';

@@ -7,10 +7,6 @@
         
         <?php
             LayoutClass::includeHomeNav();
-        ?>
-        
-        
-
-    
+        ?>  
 <?php
     LayoutClass::includeFooter();

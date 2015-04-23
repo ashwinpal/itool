@@ -49,7 +49,7 @@ class RateFunctionalty{
         
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         
-         echo '<table border="1"> <th>Product Id</th><th>Product Name</th>'
+         echo '<table class="table table-striped"> <th>Product Id</th><th>Product Name</th>'
         . '<th>Category Id</th><th>Rate This Product</th>';
          
         foreach($statement as $q){
@@ -60,6 +60,11 @@ class RateFunctionalty{
            echo '</tr>';  
          }
         echo '</table>';
+    }
+    
+    public function AvgProduct(){
+        
+        $query="select ";
     }
 }
 

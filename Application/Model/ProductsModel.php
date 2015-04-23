@@ -18,7 +18,7 @@ class AddProduct{
     private $product_description;
     private $category_id;
     private $buying_price;
-    private $image;
+    //private $image;
     
 //    function __construct()
 //    {
@@ -71,13 +71,13 @@ class AddProduct{
         $this->buying_price=$value;
     }
 
-    public function getImage(){
-        return $this->image;
-    }
-    
-    public function setImage($value){
-        $this->image=$value;
-    }  
+//    public function getImage(){
+//        return $this->image;
+//    }
+//    
+//    public function setImage($value){
+//        $this->image=$value;
+//    }  
 }
 
 class ProductFunctionalty{
@@ -93,21 +93,21 @@ class ProductFunctionalty{
     public function DisplayProduct(){
         
         $query="select product_id, product_name, product_description, category_id, "
-                . "buying_price, image, rating from product_list";
+                . "buying_price, avg_rating from product_list";
         
         $statement = $this->dbcon->query($query);
         
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         
-         echo '<table border="1"> <th>Product Id</th><th>Product Name</th><th>Product Description'
-        . '</th><th>Category Id</th><th>Price</th><th>Image</th><th>Rating</th><th>Update</th><th>Delete</th>';
+         echo '<table class="table table-striped"> <th>Product Id</th><th>Product Name</th><th>Product Description'
+        . '</th><th>Category Id</th><th>Price</th><th>Rating</th><th>Update</th><th>Delete</th>';
          
         foreach($statement as $q){
            echo '<tr>';
            echo '<td>'. $q['product_id'].'</td><td>'. $q['product_name'].'</td>'
                . '<td>'.$q['product_description'].'</td>'
                . '<td>'.$q['category_id'].'</td>'
-               . '<td>'.$q['buying_price'].'</td><td>'.$q['image'].'</td><td>'.$q['rating'].'</td>'
+               . '<td>'.$q['buying_price'].'</td><td>'.$q['avg_rating'].'</td>'
                . '<td><a href=update.php?id='.$q['product_id'].'>Update</a></td>'
                . '<td><a href=delete.php?id='.$q['product_id'].'>Delete</a></td>';
            echo '</tr>';  
@@ -117,8 +117,8 @@ class ProductFunctionalty{
     
     public function InsertProduct($newProd){
 
-        $query=" insert into product_list (product_id, product_name, product_description, category_id, buying_price, image) "
-                . "values(:product_id, :product_name, :product_description, :category_id, :buying_price, :image)";
+        $query=" insert into product_list (product_id, product_name, product_description, category_id, buying_price) "
+                . "values(:product_id, :product_name, :product_description, :category_id, :buying_price)";
        
         $statement = $this->dbcon->prepare($query);
         
@@ -127,7 +127,7 @@ class ProductFunctionalty{
         $statement->bindValue(':product_description', $newProd->getProduct_Decription());
         $statement->bindValue(':category_id', $newProd->getCategory_Id());
         $statement->bindValue(':buying_price', $newProd->getBuying_Price());
-        $statement->bindValue(':image', $newProd->getImage());
+//        $statement->bindValue(':image', $newProd->getImage());
                  
         $success = $statement->execute();
                  
@@ -166,7 +166,7 @@ class ProductFunctionalty{
 
     public function UpdateProduct($Pname){
             
-        $query="update product_list set product_id=:product_id, product_name=:product_name, product_description=:product_description, category_id=:category_id, buying_price=:buying_price, image=:image where product_id=:product_id ";   
+        $query="update product_list set product_id=:product_id, product_name=:product_name, product_description=:product_description, category_id=:category_id, buying_price=:buying_price where product_id=:product_id ";   
         
         $statement = $this->dbcon->prepare($query);     
         
@@ -175,7 +175,7 @@ class ProductFunctionalty{
         $statement->bindValue(":product_description", $Pname->getProduct_Decription());
         $statement->bindValue(":category_id", $Pname->getCategory_Id());
         $statement->bindValue(":buying_price", $Pname->getBuying_Price());
-        $statement->bindValue(":image", $Pname->getImage());
+//        $statement->bindValue(":image", $Pname->getImage());
 
         $success = $statement->execute();
                 
@@ -191,25 +191,4 @@ class ProductFunctionalty{
             return 0;
         }      
     }
-    
-//    public function RateProduct(){
-//        
-//        $query="select product_id, product_name, category_id, rating from product_list";
-//        
-//        $statement = $this->dbcon->query($query);
-//        
-//        $statement->setFetchMode(PDO::FETCH_ASSOC);
-//        
-//         echo '<table border="1"> <th>Product Id</th><th>Product Name</th>'
-//        . '<th>Category Id</th><th>Rate</th>';
-//         
-//        foreach($statement as $q){
-//           echo '<tr>';
-//           echo '<td>'. $q['product_id'].'</td><td>'. $q['product_name'].'</td>'
-//               . '<td>'.$q['category_id'].'</td>'
-//               . '<td>'.$q['rating'].'</td>';
-//           echo '</tr>';  
-//         }
-//        echo '</table>';
-//    }
 }

@@ -27,24 +27,24 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
            
     }
 ?>
-    <div id="category_heading">
+    <div id="heading">
        <h1>Category</h1>
     </div>
         <hr/>
         
-<div role="tabpanel">   
+        <div id="tab" role="tabpanel">   
 
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#home" class="page-links" aria-controls="home" role="tab" data-toggle="tab">Update Category</a></li>          
         </ul>
 
-    <div class="tab-content">
+    <div  class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="home">
-<!--            <h3>Update Category</h3>-->
+           <h3>Update Category</h3>
 <br/><br/>
             <form action="update.php?id=<?=$id?>" method="post">
-                <label>Enter The Category Name: </label>&nbsp;<input type="text" name="name" value="" id="name" /><br/><br/>
-                <input type="submit" name="submit" id="submit" value="update" />               
+                <label >Enter The Category Name: </label>&nbsp;<input class="form-control" type="text" name="name" value="" id="name" /><br/><br/>
+                <input class="buttonstyle" type="submit" name="submit" id="submit" value="Update" />               
             </form>
         </div>
     </div>

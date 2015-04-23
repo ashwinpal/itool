@@ -1,13 +1,19 @@
 <?php
 
-session_start();
+//session_start();
+
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/IncludeClass.php';
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/DBAccessClass.php';
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/RatingModel.php';
 
+    LayoutClass::includeHeader(); 
 
+   LayoutClass::includeHomeNav();
+?>
 
+<?php
 if(isset($_GET["rate"])){
     
                 $obj = new AccessDB();
@@ -28,7 +34,7 @@ if(isset($_GET["rate"])){
 
             if($count > 0){
 
-                echo 'Sorry you have rated this product already';
+                echo '<label style="color:red; padding:20px;"> Sorry you have rated this product already </label>';
                
             }
             else {
@@ -49,20 +55,23 @@ if(isset($_GET["rate"])){
 
                 if($success)
                 {
-                    echo 'Thanks for rating the product '.$_GET["pid"];
+                    echo '<label style="color:green; padding:20px;">Thanks for rating the product '.$_GET["pid"].'</label>';
 
                 }
                 else
                 {
-                    echo 'Error in rating the product';
-                }
- 
-                
+                    echo '<label style="color:yellow; padding:20px;">Error in rating the product</label>';
+                }               
             }
     }
     
     else
     {
-        echo "Sorry! You need to select a value to RATE IT!";
+        echo '<label style="color:orange; padding:20px;">Sorry! You need to select a value to RATE IT!</label>';
     }
 
+?>
+</div>
+<?php
+    LayoutClass::includeFooter();
+   

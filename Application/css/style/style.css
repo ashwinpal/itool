@@ -295,7 +295,7 @@ z-index: 1050 !important;
 
 /*AdminCategory Index (Tejinder Kaur Gill)*/
 
-#category_heading{
+#heading{
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     padding-top: 2px;
     padding-left: 10px;
@@ -317,3 +317,7 @@ z-index: 1050 !important;
     color: #fff;
     background: #335f7d;
 }
+
+
+/*rating product (Tejinder Kaur Gill)*/
+
