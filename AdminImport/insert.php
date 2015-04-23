@@ -61,17 +61,17 @@ alert(Result[1]);
 
     </head>
     <body>
-        <div id="product_heading">
+        <div id="heading">
              <h1>Import Product</h1>
         </div>
         <hr/>
         
             <br/>
-          <div id="">
+          <div id="tab">
             <form action="" method="post">
                <label>Category Id:</label> 
                
-               <select name="selectCat" id="selectCat" onchange="showProd(this.value)" >
+               <select class="form-control" name="selectCat" id="selectCat" onchange="showProd(this.value)" >
                    <option value="0">Select Category</option>
                    <?php foreach ($result as $cat) 
                      { 
@@ -89,18 +89,16 @@ alert(Result[1]);
                </select>
                <br/>
                <label>Product</label>
-               <select name="product_list" id="product_list" >
+               <select class="form-control" name="product_list" id="product_list" >
                    <option>Select Product</option>
                </select>
                <br/>
-                <label> Quantity: </label><input type="text" id="qty" name="qty"/><br/>
-                <input type="submit" name="submit" id="submit" value="Place Order" />
-              </div>
+                <label> Quantity: </label><input class="form-control" type="text" id="qty" name="qty"/><br/>
+                <input class="buttonstyle" type="submit" name="submit" id="submit" value="Place Order" />
+             
                       
             </form> 
-              
-        </div>
-        
+               </div>
     </body>
 </html>
 

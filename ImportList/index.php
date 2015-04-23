@@ -18,13 +18,13 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
 <html>
     <head></head>
     <body>
-        <div id="product_heading">
+        <div id="heading">
              <h1>List of orders</h1>
         </div>
         <hr/>
         
   
-          <div id="view_orders">
+          <div>
             <form action="" method="post">
                <?php 
                 $controllerObj->displayPublic();  

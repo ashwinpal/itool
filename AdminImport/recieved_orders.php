@@ -36,24 +36,24 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
         
     </head>
     <body>
-        <div id="product_heading">
+        <div id="heading">
              <h1>Add Received Orders</h1>
         </div>
         <hr/>
         
-          <div id="recieved_orders">
+          <div id="tab">
               
               <?php echo $err."</br>"; ?>
             <form action="" method="post">
                 <label> Order Number: <?php echo $_GET['id']; ?></label><br/>
-                <label> Received Quantity: </label><input type="text" id="rqty" name="rqty" value="<?php echo $_GET['qty'];?>"/><br/>
-                <label>Received Date:</label><input name='received_date' type='date'   /><br/>
-                <label>Expiry Date:</label><input name='expiry_date' type='date'  />
-                <input type="submit" name="submit" id="submit" value="Ok" />  
+                <label> Received Quantity: </label><input class="form-control" type="text" id="rqty" name="rqty" value="<?php echo $_GET['qty'];?>"/><br/>
+                <label>Received Date:</label><input class="form-control" name='received_date' type='date'   /><br/>
+                <label>Expiry Date:</label><input class="form-control" name='expiry_date' type='date'  /><br/><br/>
+                <input class="buttonstyle" type="submit" name="submit" id="submit" value="Ok" />  
 
                </form> 
-        </div>
-               <div> <a class="page_links" href="index.php">Back to home</a> </div>
+        </div><br/>
+        <div> <a class="buttonstyle" class="page_links" href="index.php">Back to home</a> </div>
     </body>
 </html>
 

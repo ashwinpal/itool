@@ -25,12 +25,12 @@ else
 <html>
     <head></head>
     <body>
-        <div id="product_heading">
+        <div id="heading">
              <h1>List of orders</h1>
         </div>
         <hr/>
         
-        <div id="product_nav">
+        <div id="tab">
             <a class="buttonstyle" href="insert.php"  >Place an order</a>
         </div>
         <br/>
