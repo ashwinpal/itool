@@ -14,29 +14,31 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
    LayoutClass::includeHomeNav();
 ?>
 <html>
-<!--    <head>
+    <head>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
  
        $(document).ready(function(){
-       $("ol ul").hide();
+       $(".ans").hide();
      
-       $("ol").click(function(){
-       $(" ol ul li").hide();
-       $(this).find("ol li ul ").toggle();       
+       $(".que").click(function(){
+       $(".ans").hide();
+       $(this).find(".ans").toggle();       
+    });  
+        $(".que").mouseover(function(){
+        $(this).css("background", "#FAAC58");
+    });
+    $(".ans").mouseover(function(){
+        $(this).css("background", "#F7BE81");
     });
     
-        $("li").mouseover(function(){
-        $(this).css("background", "lightblue");
-    });
-    
-        $("li").mouseout(function(){
+        $(".que").mouseout(function(){
         $(this).css("background", "white");
          });
     
 });
 </script>
-    </head>-->
+    </head>
     <body>
         <h1>FREQUENTLY ASKED QUESTIONS</h1>
         <hr/>
@@ -44,13 +46,13 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
 <?php
       $modelAction = new faqFunctionality();
       $view =$modelAction->DisplayPublic();
-echo "<ol>";
+//echo "<ol>";
         foreach ($view as $q => $a)
         { ?>
-    <li> <?php   echo $a['questions'] ;?> </li>
-         <ul> <li> <?php   echo $a['answers'] ;?> </li></ul>
+        <div class="que"><b> <?php   echo $a['questions'] ;?> </b>
+            <div class="ans">  <?php   echo $a['answers'] ;?> </div></div><br/>
             <?php
-        }echo "</ol>";
+        }
 ?> 
  
     </body>
