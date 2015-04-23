@@ -13,39 +13,33 @@ ob_start();
             LayoutClass::includeHomeNav();
         ?>
 
-<?php
-         if(onsubmitCheck('submit'))
-    // validation 1 , checking if submit is clicked
-            {
-//                        $model = new invoices();
-//        
-//                        $model->setproductId($_POST['name']);
-//                        $model->setQuantity($_POST['quantity']);
-//                        $model->setsellingDate($_POST['date']);
-//                        $model->setsellingPrice($_POST['price']);
-//                        $model->setuserId("U123");
-//                    $modelAction = new invoicesFunctionality();
-//        
-//                    $result=$modelAction->insertValues($model);
-//       
-//                    GeneralClass::redirect('../invoicesAdmin/Index.php?'.$result, false);
-//                    
-            $controllerObject->formValues();
-            $controllerObject->insert();
-             
-            }
-?>
-
 <html>
     <head></head>
     <body>
         <div id="heading">
              <h1>Invoices & Bills</h1>
         </div>
-        <hr/>     
+        <hr/>  
+        
+     <?php
+         if(onsubmitCheck('submit'))
+           {
+             
+          if($_POST['name']==""|| $_POST['quantity']==""||$_POST['date']==""|| $_POST['price']==""|| $_POST['userid']=="")
+        {
+          echo "<strong>*All fields are required</strong>";
+        }
+    
+        else{
+            $controllerObject->formValues();
+            $controllerObject->insert(); 
+        } 
+    }
+    ?>
                
         <div id="tab">
             <h3>Add invoices information</h3>
+            <!--Form for inserting values into invoices-->
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                 <label>Product Id:</label>  <input class="form-control" type="text" name="name" id="name" /><br/>
                 <label>Product Quantity:</label>  <input class="form-control" type="text" name="quantity" id="quantity" /><br/>

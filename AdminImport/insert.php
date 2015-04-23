@@ -19,8 +19,8 @@ $modelAction=new CategoryFunctionality();
  
  if(isset($_POST['submit']))
      {
-         echo 'hi';
-         var_dump($_POST);
+         //echo 'hi';
+         //var_dump($_POST);
      }
            // $controllerObj->formValues();
            // $controllerObj->insert(); 

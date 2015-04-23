@@ -13,19 +13,26 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
 <?php
    LayoutClass::includeAdminNav();
 ?>
-<?php
-  if(onsubmitCheck('submit')){
-      
-      
-      $controllerObj->formValues();
-      $controllerObj->insert();
-  }  
-?>
 
         <div id="heading">
              <h1>Product</h1>
         </div>
         <hr/>
+        <?php
+         if(onsubmitCheck('submit'))
+           {
+             
+          if($_POST['id']==""|| $_POST['name']=="" ||$_POST['desc']==""|| $_POST['catid']==""|| $_POST['price']=="")
+        {
+          echo "<strong>*All fields are required</strong>";
+        }
+    
+        else{
+            $controllerObj->formValues();
+            $controllerObj->insert(); 
+        } 
+    }
+?>
 <div id="tab" role="tabpanel">
     
        <ul class="nav nav-tabs" role="tablist">

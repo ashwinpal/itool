@@ -12,16 +12,9 @@ ob_start();
         <?php
             LayoutClass::includeAdminNav();
         ?>
+<!--//checking if submit button is clicked then form values are called from controller.
+//insert method is called-->
 
-<?php
-         if(onsubmitCheck('submit'))
-           {
-            $controllerObject->formValues();
-            $controllerObject->insert(); 
-            
-            
-           }
-?>
 
 <html>
     <head></head>
@@ -31,14 +24,31 @@ ob_start();
         </div>
         <hr/>    
         
+        <?php
+         if(onsubmitCheck('submit'))
+           {
+             
+          if($_POST['Question']==""|| $_POST['Answer']=="")
+        {
+          echo "<strong>*All fields are required</strong>";
+        }
+    
+        else{
+            $controllerObject->formValues();
+            $controllerObject->insert(); 
+        } 
+    }
+?>
         <div id="add_product">
             <h3>Add Frequently Asked Questions</h3>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 <!--                <label>Question:</label>  <input type="text" name="Question" id="Question" /><br/>
                 <label>Answer:</label> <input type="text" name="Answer" id="Answer" /> <br/>-->
                 
-                <label>Question:</label> <textarea id="Question" name="Question"></textarea><br/>
-                <label>Answer:</label> <textarea  name="Answer" id="Answer"></textarea> <br/>
+                <label>Question:</label> <textarea id="Question" name="Question"></textarea>
+                 <br/>
+                <label>Answer:</label> <textarea  name="Answer" id="Answer"></textarea> 
+                 <br>
                  <input type="submit" name="submit" id="submit" value="Submit" />
             </form>
         </div>
