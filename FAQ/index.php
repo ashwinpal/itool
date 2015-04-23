@@ -14,33 +14,29 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
    LayoutClass::includeHomeNav();
 ?>
 <html>
-    <head>
+<!--    <head>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
-    $(".click").click(function(){
-    $(".expand").slideToggle();
-  });
-//$(document).ready(function(){
-//$("ol ul").hide();
-//     
-//       $("ol").click(function(){
-//        $(" ul li").hide();
-//        $(this).find("ul li").toggle();
-//        
-        
-//    });
-////    
-//    $("li").mouseover(function(){
-//        $(this).css("background", "lightblue");
-//    });
-//    
-//    $("li").mouseout(function(){
-//        $(this).css("background", "white");
-//    });
+ 
+       $(document).ready(function(){
+       $("ol ul").hide();
+     
+       $("ol").click(function(){
+       $(" ol ul li").hide();
+       $(this).find("ol li ul ").toggle();       
+    });
+    
+        $("li").mouseover(function(){
+        $(this).css("background", "lightblue");
+    });
+    
+        $("li").mouseout(function(){
+        $(this).css("background", "white");
+         });
     
 });
 </script>
-    </head>
+    </head>-->
     <body>
         <h1>FREQUENTLY ASKED QUESTIONS</h1>
         <hr/>

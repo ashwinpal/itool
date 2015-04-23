@@ -2,7 +2,7 @@
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/GeneralClass.php';
 include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Class/Interfaces.php';
-include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/FaqModel.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/ReportModel.php';
 
 class ReportController implements iAction
 {

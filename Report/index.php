@@ -68,7 +68,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/ReportM
           
                      if($_POST['selectId'] === "0")
                                 {
-                                    echo 'Please select a Product Id from the list.';
+                                    echo 'Please select a Product Name from the list.';
                      }
                     else {
                         GeneralClass::redirect('GetReport.php?selectId='.$_POST['selectId'], false);
