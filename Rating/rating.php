@@ -13,7 +13,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
 ?>  
 
 <?php
-   LayoutClass::includeAdminNav();
+   LayoutClass::includeHomeNav();
 ?>
 
 
