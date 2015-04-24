@@ -25,7 +25,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
 
     if(isset($_POST['submit'])){
         
-        $controllerObj->update($id,$_POST['name'],$_POST['desc'],$_POST['catid'],$_POST['price'],$_POST['image']);
+        $controllerObj->update($id,$_POST['name'],$_POST['desc'],$_POST['catid'],$_POST['price']);
            
     }
 ?>
@@ -50,8 +50,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
                 <label>Product Description:</label>  <textarea class="form-control" rows="3" cols="19" name="desc" id="desc" ></textarea><br/>
                 <label>Category Id:</label> <input class="form-control" type="text" name="catid" id="catid" /><br/>
                 <label>Buying Price:</label> <input class="form-control" type="text" name="price" id="price" /><br/>
-                <label>Image:</label> <input class="form-control" type="text" name="image" id="image" /><br/><br/>
-                <input class="buttonstyle" type="submit" name="submit" id="submit" value="Update Product" />
+               <input class="buttonstyle" type="submit" name="submit" id="submit" value="Update Product" />
             </form>
         </div>
     </div>

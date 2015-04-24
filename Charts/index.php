@@ -31,12 +31,12 @@ LayoutClass::includeHeader();
         
         
   ?>
-
+<div id="heading">
 <h1>Compare Products</h1>
+</div>
 
-<div id="page-wrapper">
 
-            <div class="container-fluid">
+<div id="tab" >
 
 <form action="" method="get">
 <span>Product 1</span>
@@ -86,23 +86,13 @@ LayoutClass::includeHeader();
 <br>
 <br>
 
-<button class="btn btn-primary" type="submit" name="charts">Bar Chart</button>
+<button class="buttonstyle" type="submit" name="charts">Bar Chart</button>
 
-                </form>
-
-
-        
-    
-
-
-
-            
+                </form>   
             
         </div>
         <!-- /.container-fluid -->
 
-    </div>
-    <!-- /#page-wrapper -->
     
 <?php
 

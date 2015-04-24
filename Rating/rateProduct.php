@@ -11,7 +11,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Model/RatingM
 
     LayoutClass::includeHeader(); 
 GeneralClass::checkUser($_SESSION['role']);
-   LayoutClass::includeAdminNav();
+   LayoutClass::includeHomeNav();
 ?>
 
 <?php

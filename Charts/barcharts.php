@@ -17,11 +17,12 @@ LayoutClass::includeHeader();
     ?>
     
 
-<div id="page-wrapper">
 
-            <div class="container-fluid">
+
+            <div id="heading">
                 <h2>Profit / Loss Chart</h2>
-
+            </div>
+<div id="tab">
     <?php
             $modelAction = new reportFunctionality();    
 
@@ -44,21 +45,13 @@ LayoutClass::includeHeader();
         
     }
 
-?>
-        
+?> 
     
-        
-    
-                    
                 <div id="chart1" style="height:400px;width:300px; "></div>
-
+</div>
             
             
-        </div>
-        <!-- /.container-fluid -->
-
-    </div>
-    <!-- /#page-wrapper -->
+       
  
 <!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>-->
 

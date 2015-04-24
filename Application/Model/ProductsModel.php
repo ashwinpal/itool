@@ -115,6 +115,30 @@ class ProductFunctionalty{
         echo '</table>';
     }
     
+    public function PublicProduct(){
+        
+        $query="select product_id, product_name, product_description, category_id, "
+                . "buying_price from product_list";
+        
+        $statement = $this->dbcon->query($query);
+        
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        
+         echo '<table class="table table-striped"> <th>Product Id</th><th>Product Name</th><th>Product Description'
+        . '</th><th>Category Id</th><th>Price</th>';
+         
+        foreach($statement as $q){
+           echo '<tr>';
+           echo '<td>'. $q['product_id'].'</td><td>'. $q['product_name'].'</td>'
+               . '<td>'.$q['product_description'].'</td>'
+               . '<td>'.$q['category_id'].'</td>'
+               . '<td>'.$q['buying_price'].'</td><td>';
+           echo '</tr>';  
+         }
+        echo '</table>';
+    }
+    
+    
     public function InsertProduct($newProd){
 
         $query=" insert into product_list (product_id, product_name, product_description, category_id, buying_price) "

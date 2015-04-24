@@ -22,7 +22,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/project/itool/Application/Controller/Ad
 <!--        <div id="view_product">-->
         <h3>View Products</h3>
             <form>
-                <?php $controllerObj->display(); ?>
+                <?php $controllerObj->publicdisplay(); ?>
             </form>           
     </div>
 </div>
